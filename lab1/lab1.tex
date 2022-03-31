@@ -1,18 +1,20 @@
 \renewcommand{\chaptername}{Feb 8th: Lab}
 \chapter{Quantum Confinement and Superposition}
-In quantum mechanics, particles can be 'spatially confined' to a given energy potential where the energy levels of the confined particles will not remain continuous (as in the case of bulk materials) but instead are now quantized.
-Quantum mechanics allows us to obtain the wave functions of the confined particle and their discrete set of energy levels -- such kinds of effects appear when the dimensions of the potential approach the deBroglie wavelength of particle. These effects are the basis for several semiconductor devices, including nano-crystals often called quantum dots.
-In this lab, the following objectives were pursued:
+In quantum mechanics, particles can be `spatially confined' to a given energy potential where the energy levels of the confined particles will not remain continuous but instead are instead quantized.
+Quantum mechanics allows us to obtain the wave functions of the confined particle and their discrete set of energy levels -- such kinds of effects appear when the dimensions of the potential approach the deBroglie wavelength of particle. These effects are the basis for several semiconductor devices.
+
+\section{Objectives}
 \begin{itemize}
     \item Visualise the energy levels of a confined particle as well as the behaviour of its quantum wavefunction,
     \item Obtain deeper understanding and visualise the nature of qunatum superposition.
 \end{itemize}
 
-The infinite square well (often called ``particle in a box'') provides several illustrations of the properties of wave functions whilst being one of the less troublesome problems to solve. This can be done using the time-independent, one-dimensional Schrödinger equation.
+\section{Methods}
+In this lab, the infinite square well (often called ``particle in a box'') problem. This provides several illustrations of the properties of wave functions whilst being one of the less troublesome problems to solve. This can be done using the time-independent, one-dimensional Schrödinger equation.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.3\textwidth]{frog.jpg} %particleInABox
+    \includegraphics[width=0.3\textwidth]{lab1/images/pIAB.png}
     \caption{Particle in a Box}
     \label{fig:particleInABox}
 \end{figure}
@@ -21,19 +23,10 @@ This problem requires that we set a potential, which we can make:
 
 \[
   V(x) = \begin{cases}
-  0 & 0 < L < 1\\
+  0 & 0 < x < L\\
   \infty & \text{elsewhere}
 \end{cases}
 \]
-
-
-Although this potential is clearly artificial, the problem is worth carefully studying for several reasons: 
-\begin{itemize}
-    \item Exact solutions to the Schrödinger equation can be obtained without the difficult mathematics which usually accompanies its solution for more realistic potential functions,
-    \item The problem is closely related to many familiar classical problems,
-    \item It illustrates many of the important features of all quantum-mechanics problems,
-    \item This potential is a relatively good approximation to some real situations.
-\end{itemize}
 
 \section{Methods}
    
@@ -46,8 +39,7 @@ Derivation of energy equation to calculate the quantised energies:
 Consider the time-independent, one-dimensional Schrödinger equation in the $x$ direction:
 
 $$E_n \Psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Psi_n (x) + V(x)\Psi_n (x)$$
-
-where $\hbar$ is some fucking Planck Constant, $m$ is the mass of the particle, $a$ is the length of the \textbf{well?}, $\Psi_n (x)$ is the wavefunction, $V(x)$ is the potential and $E_n$ is the energy level. 
+where $\hbar$ is the reduced Planck Constant, $m$ is the mass of the particle, $a$ is the length of the \textbf{well?}, $\Psi_n (x)$ is the wavefunction, $V(x)$ is the potential and $E_n$ is the energy level. 
 
 $V(x)$ in the potential well = 0: 
 
@@ -107,21 +99,21 @@ Calculating the normalised wavefunction = eigenfunction:
 
 Rearranging Equation \ref{eq:1}:
 
-$$\frac{\delta^{2}}{\delta x^{2}}\Psi_n (x) = \frac{-2m}{\hbar} E \Psi_n (x) = -k^2 \Psi_n (x)$$
+$$\frac{\delta^{2}}{\delta x^{2}}\Psi (x) = \frac{-2m}{\hbar} E \Psi (x) = -k^2 \Psi (x)$$
 
 where $k=\frac{-2m}{\hbar}$.
 
-The general equation must follow the following expression:
+To satisfy this second order homogeneous differential equation, the general equation is given by the following expression:
 
-$$\Psi_n (x) = A \sin(kx) + B cos(kx)$$ %DO YOU INCLUDE THE SUBSCRIPT N?
+$$\Psi (x) = A \sin(kx) + B cos(kx)$$
 
-Applying the boundary condition, $\Psi_n (x)$=0 at x=0:
+Applying the boundary condition, $\Psi (x)$=0 at x=0:
 $$\implies 0 = A sin(0) + B cos(0)$$
 $$ 0 = B$$
-$$\therefore \Psi_n (x) = A sin(x)$$
+$$\therefore \Psi (kx) = A sin(kx)$$
 
-Applying the boundary condition, $\Psi_n (x)$=0 at x=a:
-$$\implies 0 = A sin(ka)$$ %WHERE DID K COME FROM?!
+Applying the boundary condition, $\Psi (x)$=0 at x=a:
+$$\implies 0 = A sin(ka)$$ 
 $$ ka = \pi n \quad \text{where } n \in \mathbb{N}$$
 $$ k = \frac{\pi n}{a}$$
 $$\therefore \Psi_n (x) = A sin(\frac{\pi n}{a}x)$$
