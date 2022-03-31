@@ -1,5 +1,6 @@
 \renewcommand{\chaptername}{Feb 8th: Lab}
 \chapter{Quantum Confinement and Superposition}
+%CHANGE FIRST IMAGE FROM L TO A
 In quantum mechanics, particles can be `spatially confined' to a given energy potential where the energy levels of the confined particles will not remain continuous but instead are instead quantized.
 Quantum mechanics allows us to obtain the wave functions of the confined particle and their discrete set of energy levels -- such kinds of effects appear when the dimensions of the potential approach the deBroglie wavelength of particle. These effects are the basis for several semiconductor devices.
 
@@ -10,7 +11,7 @@ Quantum mechanics allows us to obtain the wave functions of the confined particl
 \end{itemize}
 
 \section{Methods}
-In this lab, the infinite square well (often called ``particle in a box'') problem. This provides several illustrations of the properties of wave functions whilst being one of the less troublesome problems to solve. This can be done using the time-independent, one-dimensional Schrödinger equation.
+In this lab, the infinite square well (often called ``particle in a box'') problem is investigated. This provides several illustrations of the properties of wave functions whilst being one of the less troublesome problems to solve. This can be done using the time-independent, one-dimensional Schrödinger equation.
 
 \begin{figure}[h]
     \centering
@@ -23,46 +24,38 @@ This problem requires that we set a potential, which we can make:
 
 \[
   V(x) = \begin{cases}
-  0 & 0 < x < L\\
+  0 & 0 < x < a\\
   \infty & \text{elsewhere}
 \end{cases}
 \]
-
-\section{Methods}
-   
-These properties were inspected in detail using \textbf{Python}.
    
 \section{Results}
-
-Derivation of energy equation to calculate the quantised energies:
-
-Consider the time-independent, one-dimensional Schrödinger equation in the $x$ direction:
+\subsection{Energy Eigenvalues}
+To determine the energy of the quantised states within the potential well, the time-independent one-dimensional Schrödinger equation must be considered:
 
 $$E_n \Psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Psi_n (x) + V(x)\Psi_n (x)$$
-where $\hbar$ is the reduced Planck Constant, $m$ is the mass of the particle, $a$ is the length of the \textbf{well?}, $\Psi_n (x)$ is the wavefunction, $V(x)$ is the potential and $E_n$ is the energy level. 
+where $\hbar$ is the reduced Planck Constant, $m$ is the mass of the particle, $\Psi_n (x)$ is the wavefunction, $V(x)$ is the potential, $E_n$ is the energy level and x is the position along the x-axis. 
 
 $V(x)$ in the potential well = 0: 
 
 \begin{equation} \label{eq:1}
-E_n \Psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Psi_n (x)
+\therefore E_n \Psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Psi_n (x)
 \end{equation}
 
+Substituting $\Psi_n (x)$ for its eigenfunction (the derivation for this eigenfunction can be found in Section~\ref{sec:eigenFunction}):
+\begin{align*}
+E_n \Psi_n (x) &= \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)\\
+E_n \Psi_n (x) &= \frac{-\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)\\
+\hspace{-1.5cm}\text{Substituting }\Psi_n (x) \text{ back}:\\
+E_n \Psi_n (x) &= \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\Psi_n (x)\\
+E_n &= \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2} & \text{where } n \in \mathbb{N}
+\end{align*}
 
-Substituting $\Psi_n (x)$ for its \textbf{eigenfunction}:
-
-$$E_n \Psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)$$
-
-$$E_n \Psi_n (x) = \frac{-\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)$$
-
-$$E_n \Psi_n (x) = \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\Psi_n (x)$$
-
-$$E_n = \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2} \quad \quad \quad \text{where } n \in \mathbb{N}$$
-
-The quantised energy values (energy eigenvalues) for a box 0.1nm in width (a=0.1nm) for $n=1$ to $n=5$ are plotted below:
+The energy eigenvalues for a well of width a=0.1nm is shown in Figure \ref{fig:eigenEnergy} for $n=1$ to $n=5$:
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.75\textwidth]{lab1/images/eigenvaluesEnergy.png}
+    \includegraphics[width=0.4\textwidth]{lab1/images/eigenvaluesEnergy.png}
     \caption{Plot showing the discrete energy levels for a particle in a box of length 0.1nm. First 5 energy levels are show (n=1 to n=5)}
     \label{fig:eigenEnergy}
 \end{figure}
@@ -94,6 +87,8 @@ $$E_1 = \frac{\hbar ^{2}\pi^{2}}{2ma^{2}}$$
 \caption{\textit{Table showing the calculated energy states of an electron confined in a one dimensional box with $L=0.1nm$}}
 \label{tab:qEnerergy}
 \end{table}
+
+\subsection{Eigenfunctions}\label{sec:eigenFunction}
 
 Calculating the normalised wavefunction = eigenfunction:
 
@@ -151,6 +146,8 @@ $$P_n(x) = |\Psi_n(x)|^{2} = \Bigg|\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\B
     \caption{probability density for n=1 to n=5}
     \label{fig:probDens}
 \end{figure}
+
+\subsection{Superposition}
 
 The eigenstates of the system plotted above are stationary. This means that when the system is in one of these eigenstates, all quantum mechanical observables are conserved in time (probability $P=|\Psi(x,t)|^2dx$ is independent of $\phi(t)$, meaning $P=|\psi(x)|^2dx$).
 
