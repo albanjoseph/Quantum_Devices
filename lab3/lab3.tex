@@ -18,23 +18,46 @@ The following steps were followed to create an entanglement protocol and to perf
 
 \section{Results}
 
-The circuit written to perform `quantum teleportation' is shown in Figure \ref{fig:teleportCircuit}.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.6\textwidth]{lab3/images/teleportCircuit.png}
-    \caption{teleportCircuit}
-    \label{fig:teleportCircuit}
-\end{figure}
-
 \subsubsection{Step 1}
 q1 and q2 were entangled together to be used as an entangled pair.
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.25\textwidth]{lab3/images/Step1.png}
-    \caption{Bloch sphere showing the state of each qubit after teleportation has occurred}
-    \label{fig:step1}
+\centering
+\begin{tabular}{c}
+\begin{minipage}[c]{.45\linewidth}
+\begin{minted}[fontsize=\small
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{python}
+q = QuantumCircuit(4,2)
+
+psi = random_statevector(2)
+q.append(Initialize(psi), [0])
+
+q.cx(0,1)
+q.h(0)
+
+q.draw(output='mpl')
+\end{minted}
+\end{minipage}
+\begin{minipage}[c]{.1\linewidth}
+\centering
+$\rightarrow$
+\end{minipage}
+\begin{minipage}[c]{.4\linewidth}
+\centering
+\includegraphics[width=\textwidth]{lab3/images/Step1.png}
+\end{minipage}\\
+\\ %empty line for some space
+\end{tabular}
+\caption{Code and circuit diagram to produce entangled pair}
+\label{step1}
 \end{figure}
 
+Python library with tools to facilitate simulation of quantum systems
 
 \subsubsection{Step 2}
 Backwards enanglement thing
@@ -42,63 +65,79 @@ Backwards enanglement thing
 \begin{figure}[h]
 \centering
 \begin{tabular}{c}
-\begin{minipage}[c]{.40\linewidth}
+\begin{minipage}[c]{.45\linewidth}
+\begin{minted}[fontsize=\small
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{python}
+q = QuantumCircuit(4,2)
+
+psi = random_statevector(2)
+q.append(Initialize(psi), [0])
+
+q.cx(0,1)
+q.h(0)
+
+q.draw(output='mpl')
+\end{minted}
+\end{minipage}
+\begin{minipage}[c]{.1\linewidth}
+\centering
+$\rightarrow$
+\end{minipage}
+\begin{minipage}[c]{.4\linewidth}
 \centering
 \includegraphics[width=\textwidth]{lab3/images/Step2.png}
-\end{minipage}
-\hfill
-\begin{minipage}[c]{.45\linewidth}
-\begin{minted}[fontsize=\tiny ]{python}
-'3j0lep':{
-'selectionCuts': {
-'electron':{'deltaR_ej': 0.25}
-}
-
-'cuts': { 1: { 'label': 'Cut1',
-'value': [20*Units.GeV]},
-2: { 'label': 'Cut2',
-'value': [100*Units.GeV,
-40*Units.GeV,
-40*Units.GeV],
-},
-3: { 'label': 'Cut3',
-'value': 80*Units.GeV, },
-},
-}
-\end{minted}
-\end{minipage} \\
+\end{minipage}\\
 \\ %empty line for some space
 \end{tabular}
 \caption{Main caption}
-\label{MainILabel}
+\label{step2}
 \end{figure}
 
 
-
-
-\begin{minipage}{0.45\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{lab3/images/Step2.png}
-    
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\textwidth}
-\begin{listing}
-\begin{minted}[frame=single, framesep=10pt]{python}
-n=3 to n=2 photon wavelength:  6.594375173013399e-09 m
-n=3 to n=1 photon wavelength:  4.1214844831333745e-09 m
-n=2 to n=1 photon wavelength:  1.0990625288355668e-08 m
-\end{minted}
-\end{listing}
-\end{minipage}
 \subsubsection{Step 3}
 Measure
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.25\textwidth]{lab3/images/Step3.png}
-    \caption{Bloch sphere showing the state of each qubit after teleportation has occurred}
-    \label{fig:step3}
+\centering
+\begin{tabular}{c}
+\begin{minipage}[c]{.45\linewidth}
+\begin{minted}[fontsize=\small
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{python}
+q = QuantumCircuit(4,2)
+
+psi = random_statevector(2)
+q.append(Initialize(psi), [0])
+
+q.cx(0,1)
+q.h(0)
+
+q.draw(output='mpl')
+\end{minted}
+\end{minipage}
+\begin{minipage}[c]{.1\linewidth}
+\centering
+$\rightarrow$
+\end{minipage}
+\begin{minipage}[c]{.4\linewidth}
+\centering
+\includegraphics[width=\textwidth]{lab3/images/Step3.png}
+\end{minipage}\\
+\\ %empty line for some space
+\end{tabular}
+\caption{Main caption}
+\label{step3}
 \end{figure}
 
 \subsubsection{Step 4}
@@ -106,10 +145,49 @@ The conditions that had to be satisfied
 control if gates
 
 \begin{figure}[h]
+\centering
+\begin{tabular}{c}
+\begin{minipage}[c]{.45\linewidth}
+\begin{minted}[fontsize=\small
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{python}
+q = QuantumCircuit(4,2)
+
+psi = random_statevector(2)
+q.append(Initialize(psi), [0])
+
+q.cx(0,1)
+q.h(0)
+
+q.draw(output='mpl')
+\end{minted}
+\end{minipage}
+\begin{minipage}[c]{.1\linewidth}
+\centering
+$\rightarrow$
+\end{minipage}
+\begin{minipage}[c]{.4\linewidth}
+\centering
+\includegraphics[width=\textwidth]{lab3/images/Step4.png}
+\end{minipage}\\
+\\ %empty line for some space
+\end{tabular}
+\caption{Main caption}
+\label{step4}
+\end{figure}
+
+\subsubsection{Final Design}
+The circuit written to perform `quantum teleportation' is shown in Figure \ref{fig:teleportCircuit}.
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.25\textwidth]{lab3/images/Step4.png}
-    \caption{Bloch sphere showing the state of each qubit after teleportation has occurred}
-    \label{fig:step4}
+    \includegraphics[width=0.6\textwidth]{lab3/images/teleportCircuit.png}
+    \caption{teleportCircuit}
+    \label{fig:teleportCircuit}
 \end{figure}
 
 The result from this circuit was observed using Bloch Sphere representation, as seen in Figure \ref{fig:teleportBloch}

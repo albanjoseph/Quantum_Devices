@@ -251,7 +251,16 @@ The wavelength was found using the following equation:
 \[\lambda = \frac{hc}{\Delta E}\]
 where $\lambda$ is the wavelength of the photon, $h$ is Planks constant, $c$ is the speed of light and $\Delta E$ is the difference in eigen energies.
 
-\begin{lstlisting}[language=Python]
+\begin{listing}
+\begin{minted}[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]{python}
+
 def wavelength(E):
     l = const.Planck*const.c/E
     return l
@@ -265,13 +274,15 @@ print("n=3 to n=1 photon wavelength: ",
 #Transition n=2 to n=1
 print("n=2 to n=1 photon wavelength: ", 
       wavelength(Eigen_energies[1]-Eigen_energies[0]),"m")
+\end{minted}
+\end{listing}
+
+\begin{lstlisting}[frame=single,style=base,backgroundcolor=\color{black}]
+@>>> n=3 to n=2 photon wavelength:  6.594375173013399e-09 m
+>>> n=3 to n=1 photon wavelength:  4.1214844831333745e-09 m
+>>> n=2 to n=1 photon wavelength:  1.0990625288355668e-08 m@
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python]
-n=3 to n=2 photon wavelength:  6.594375173013399e-09 m
-n=3 to n=1 photon wavelength:  4.1214844831333745e-09 m
-n=2 to n=1 photon wavelength:  1.0990625288355668e-08 m
-\end{lstlisting}
 
 \section{Conclusions}
 
