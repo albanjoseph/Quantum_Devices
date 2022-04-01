@@ -28,16 +28,89 @@ The circuit written to perform `quantum teleportation' is shown in Figure \ref{f
 
 \subsubsection{Step 1}
 q1 and q2 were entangled together to be used as an entangled pair.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{lab3/images/Step1.png}
+    \caption{Bloch sphere showing the state of each qubit after teleportation has occurred}
+    \label{fig:step1}
+\end{figure}
+
 
 \subsubsection{Step 2}
 Backwards enanglement thing
 
+\begin{figure}[h]
+\centering
+\begin{tabular}{c}
+\begin{minipage}[c]{.40\linewidth}
+\centering
+\includegraphics[width=\textwidth]{lab3/images/Step2.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.45\linewidth}
+\begin{minted}[fontsize=\tiny ]{python}
+'3j0lep':{
+'selectionCuts': {
+'electron':{'deltaR_ej': 0.25}
+}
+
+'cuts': { 1: { 'label': 'Cut1',
+'value': [20*Units.GeV]},
+2: { 'label': 'Cut2',
+'value': [100*Units.GeV,
+40*Units.GeV,
+40*Units.GeV],
+},
+3: { 'label': 'Cut3',
+'value': 80*Units.GeV, },
+},
+}
+\end{minted}
+\end{minipage} \\
+\\ %empty line for some space
+\end{tabular}
+\caption{Main caption}
+\label{MainILabel}
+\end{figure}
+
+
+
+
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{lab3/images/Step2.png}
+    
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{listing}
+\begin{minted}[frame=single, framesep=10pt]{python}
+n=3 to n=2 photon wavelength:  6.594375173013399e-09 m
+n=3 to n=1 photon wavelength:  4.1214844831333745e-09 m
+n=2 to n=1 photon wavelength:  1.0990625288355668e-08 m
+\end{minted}
+\end{listing}
+\end{minipage}
 \subsubsection{Step 3}
 Measure
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{lab3/images/Step3.png}
+    \caption{Bloch sphere showing the state of each qubit after teleportation has occurred}
+    \label{fig:step3}
+\end{figure}
 
 \subsubsection{Step 4}
 The conditions that had to be satisfied
 control if gates
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{lab3/images/Step4.png}
+    \caption{Bloch sphere showing the state of each qubit after teleportation has occurred}
+    \label{fig:step4}
+\end{figure}
 
 The result from this circuit was observed using Bloch Sphere representation, as seen in Figure \ref{fig:teleportBloch}
 \begin{figure}[h]
