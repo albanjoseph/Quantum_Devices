@@ -1,17 +1,13 @@
 \renewcommand{\chaptername}{Feb 8th: Lab}
 \chapter{Quantum Confinement and Superposition}
 %CHANGE FIRST IMAGE FROM L TO A
+%FIX LEGENEND
+%REMOVE HORIZONTAL LINES
+%CHANGE X AXIS X INSTEAD OF A
 In quantum mechanics, particles can be `spatially confined' to a given energy potential where the energy levels of the confined particles will not remain continuous but instead are instead quantized.
 Quantum mechanics allows us to obtain the wave functions of the confined particle and their discrete set of energy levels -- such kinds of effects appear when the dimensions of the potential approach the deBroglie wavelength of particle. These effects are the basis for several semiconductor devices.
 
-\section{Objectives}
-\begin{itemize}
-    \item Visualise the energy levels of a confined particle as well as the behaviour of its quantum wavefunction,
-    \item Obtain deeper understanding and visualise the nature of qunatum superposition.
-\end{itemize}
-
-\section{Methods}
-In this lab, the infinite square well (often called ``particle in a box'') problem is investigated. This provides several illustrations of the properties of wave functions whilst being one of the less troublesome problems to solve. This can be done using the time-independent, one-dimensional Schrödinger equation.
+In this lab, the infinite square well (often called ``particle in a box'') problem was investigated. This problem provides several illustrations of the properties of wave functions whilst being one of the less troublesome problems to solve. This can be done using the time-independent, one-dimensional Schrödinger equation.
 
 \begin{figure}[h]
     \centering
@@ -19,8 +15,6 @@ In this lab, the infinite square well (often called ``particle in a box'') probl
     \caption{Particle in a Box}
     \label{fig:particleInABox}
 \end{figure}
-
-This problem requires that we set a potential, which we can make:
 
 \[
   V(x) = \begin{cases}
@@ -33,44 +27,34 @@ This problem requires that we set a potential, which we can make:
 \subsection{Energy Eigenvalues}
 To determine the energy of the quantised states within the potential well, the time-independent one-dimensional Schrödinger equation must be considered:
 
-$$E_n \Psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Psi_n (x) + V(x)\Psi_n (x)$$
-where $\hbar$ is the reduced Planck Constant, $m$ is the mass of the particle, $\Psi_n (x)$ is the wavefunction, $V(x)$ is the potential, $E_n$ is the energy level and x is the position along the x-axis. 
+$$E_n \psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\psi_n (x) + V(x)\psi_n (x)$$
+where $\hbar$ is the reduced Planck Constant, $m$ is the mass of the particle, $\psi_n (x)$ is the wavefunction, $V(x)$ is the potential, $E_n$ is the energy level and x is the position along the x-axis. 
 
 $V(x)$ in the potential well = 0: 
 
-\begin{equation} \label{eq:1}
-\therefore E_n \Psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Psi_n (x)
+\begin{equation} \label{eq:shrod}
+\therefore E_n \psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\psi_n (x)
 \end{equation}
 
-Substituting $\Psi_n (x)$ for its eigenfunction (the derivation for this eigenfunction can be found in Section~\ref{sec:eigenFunction}):
+Substituting $\psi_n (x)$ for its eigenfunction (the derivation for this eigenfunction can be found in Section~\ref{sec:eigenFunction}):
 \begin{align*}
-E_n \Psi_n (x) &= \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)\\
-E_n \Psi_n (x) &= \frac{-\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)\\
-\hspace{-1.5cm}\text{Substituting }\Psi_n (x) \text{ back}:\\
-E_n \Psi_n (x) &= \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\Psi_n (x)\\
+E_n \psi_n (x) &= \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)\\
+E_n \psi_n (x) &= \frac{-\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)\\
+\hspace{-1.2cm}\text{Substituting the eigenfunction for }\psi_n (x)\text{:}\\
+E_n \psi_n (x) &= \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\psi_n (x)\\
 E_n &= \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2} & \text{where } n \in \mathbb{N}
 \end{align*}
 
-The energy eigenvalues for a well of width a=0.1nm is shown in Figure \ref{fig:eigenEnergy} for $n=1$ to $n=5$:
+The energy eigenvalues for a well of width a=0.1nm is shown in Figure \ref{fig:eigenEnergy} for ($n=1$ to $n=5$)
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.4\textwidth]{lab1/images/eigenvaluesEnergy.png}
-    \caption{Plot showing the discrete energy levels for a particle in a box of length 0.1nm. First 5 energy levels are show (n=1 to n=5)}
+    \caption{Plot showing the first 5 the discrete energy levels (n=1 to n=5) for a particle confined in a box of length 0.1nm} 
     \label{fig:eigenEnergy}
 \end{figure}
 
-Table \ref{tab:qEnerergy} shows the values for these quantised energies:
-
-Substituting $n=1$:
-$$E_1 = \frac{\hbar ^{2}\pi^{2}}{2ma^{2}}$$
-
-\begin{equation}\label{eq:energySpacing}
-\implies E_n =  n^{2}E_1
-\end{equation}
-
-
-
+The values for the quantised energies can be found in Table \ref{tab:qEnerergy}:
 
 \begin{table}[h!]
 \centering
@@ -84,66 +68,68 @@ $$E_1 = \frac{\hbar ^{2}\pi^{2}}{2ma^{2}}$$
 5 & 1.50617e-16 \\ \hline
 \end{tabular}
 %\captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
-\caption{\textit{Table showing the calculated energy states of an electron confined in a one dimensional box with $L=0.1nm$}}
+\caption{\textit{Table showing the first 5 the discrete energy values (n=1 to n=5) for a particle confined in a box of length 0.1nm}}
 \label{tab:qEnerergy}
 \end{table}
 
 \subsection{Eigenfunctions}\label{sec:eigenFunction}
-
-Calculating the normalised wavefunction = eigenfunction:
-
-Rearranging Equation \ref{eq:1}:
+Equation \ref{eq:shrod} must firstly be rearranged to determine the eigenfunction -- aka the normalised wavefunction:
 
 $$\frac{\delta^{2}}{\delta x^{2}}\Psi (x) = \frac{-2m}{\hbar} E \Psi (x) = -k^2 \Psi (x)$$
-
-where $k=\frac{-2m}{\hbar}$.
+$$\frac{\delta^{2}}{\delta x^{2}}\Psi (x) + k^2 \Psi (x) = 0$$
+where $k=\frac{-2m}{\hbar}$
 
 To satisfy this second order homogeneous differential equation, the general equation is given by the following expression:
 
-$$\Psi (x) = A \sin(kx) + B cos(kx)$$
+$$\Psi (x) = A \sin(kx) + B \cos(kx)$$
 
-Applying the boundary condition, $\Psi (x)$=0 at x=0:
-$$\implies 0 = A sin(0) + B cos(0)$$
-$$ 0 = B$$
-$$\therefore \Psi (kx) = A sin(kx)$$
+Applying the boundary condition, $\Psi (0)$=0:
+\begin{align*}
+\implies 0 &= A sin(0) + B cos(0)\\
+ 0 &= B\\
+\therefore \Psi (kx) &= A sin(kx)
+\end{align*}
 
-Applying the boundary condition, $\Psi (x)$=0 at x=a:
-$$\implies 0 = A sin(ka)$$ 
-$$ ka = \pi n \quad \text{where } n \in \mathbb{N}$$
-$$ k = \frac{\pi n}{a}$$
-$$\therefore \Psi_n (x) = A sin(\frac{\pi n}{a}x)$$
+Applying the boundary condition, $\Psi (a)$=0:
+\begin{align*}
+\hspace{3.5cm} \implies 0 &= A sin(ka)\\
+ka &= \pi n & \text{where } n \in \mathbb{N}\\
+k &= \frac{\pi n}{a}\\
+\therefore \psi_n (x) &= A sin(\frac{\pi n}{a}x)
+\end{align*}
 
-A must satisfy the following normalised:
+The eigenfunction must satisfy the following condition:
 
-$$\int_{ -\infty}^{\infty}\Psi_n (x)^{*}\Psi_n (x)dx = 1$$
-$$\int_{ -\infty}^{0}\Psi_n (x)^{*}\Psi_n (x)dx +\int_{0}^{a}\Psi_n (x)^{*}\Psi_n (x)dx + \int_{ a}^{\infty}\Psi_n (x)^{*}\Psi_n (x)dx= 1$$
-$$\int_{ 0}^{a} A^{*} [sin(\frac{\pi n}{a}x)]^{*}A sin(\frac{\pi n}{a}x)dx = 1$$
-$$A^{*}A\int_{ 0}^{a} [sin(\frac{\pi n}{a}x)]^{*}sin(\frac{\pi n}{a}x)dx = 1$$
-$$\left | A \right |^2 \int_{ 0}^{a} sin(\frac{\pi n}{a}x) sin(\frac{\pi n}{a}x)dx = 1$$
-$$\left | A \right |^2 \int_{ 0}^{a} sin^{2}(\frac{\pi n}{a}x)dx = 1$$
-$$\left | A \right |^2 \left[\frac{x}{2}-\frac{asin(\frac{2 \pi nx}{a})}{4 \pi n}\right]_0^a= 1$$
-$$\left | A \right |^2 [(\frac{a}{2}-0)-(0-0)]= 1$$
-$$\left | A \right |^2 \frac{a}{2}= 1$$
-$$\left | A \right | = \sqrt{\frac{2}{a}}$$
-$$\therefore \Psi_n (x) = \sqrt{\frac{2}{a}} sin(\frac{\pi n}{a}x)$$ %MAGNITUDE?!
+$$\int_{ -\infty}^{\infty}\psi_n (x)^{*}\psi_n (x)dx = 1$$
+$$\int_{ -\infty}^{0}\psi_n (x)^{*}\psi_n (x)dx +\int_{0}^{a}\psi_n (x)^{*}\psi_n (x)dx + \int_{ a}^{\infty}\psi_n (x)^{*}\psi_n (x)dx= 1$$
+\begin{align*}
+\int_{ 0}^{a} A^{*} [sin(\frac{\pi n}{a}x)]^{*}A sin(\frac{\pi n}{a}x)dx = 1\\
+A^{*}A\int_{ 0}^{a} [sin(\frac{\pi n}{a}x)]^{*}sin(\frac{\pi n}{a}x)dx = 1\\
+\left | A \right |^2 \int_{ 0}^{a} sin(\frac{\pi n}{a}x) sin(\frac{\pi n}{a}x)dx = 1\\
+\left | A \right |^2 \int_{ 0}^{a} sin^{2}(\frac{\pi n}{a}x)dx = 1\\
+\left | A \right |^2 \left[\frac{x}{2}-\frac{asin(\frac{2 \pi nx}{a})}{4 \pi n}\right]_0^a= 1\\
+\left | A \right |^2 [(\frac{a}{2}-0)-(0-0)]= 1\\
+\left | A \right |^2 \frac{a}{2}= 1\\
+\left | A \right | = \sqrt{\frac{2}{a}}
+\end{align*}
+$$\therefore \psi_n (x) = \sqrt{\frac{2}{a}} sin(\frac{\pi n}{a}x)$$
 
-Figure \ref{fig:normWave} shows plots of the wavefunctions $\psi_n(x)$ and Figure \ref{fig:probDens} probability densities $P_n(x)$ for $n=1$ to $n=5$. 
- 
+The normalised wavefunction, $\psi_n (x)$, for $n=1$ to $n=5$ is shown in Figure \ref{fig:normWave}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{lab1/images/normalisedWavefunction.png}
-    \caption{Normalised wavefunction for n=1 to n=5}
+    \caption{Plot showing the normalised wavefunctions for (n=1 to n=5) for a particle confined in a box of length 0.1nm}
     \label{fig:normWave}
 \end{figure}
 
-Then plotted the probability density functions (PDFs), $P_n (x)$, given by:
+Figure \ref{fig:probDens} shows the probability density functions (PDFs), $P_n(x)$, for $n=1$ to $n=5$; where $P_n (x)$, given by:
 
-$$P_n(x) = |\Psi_n(x)|^{2} = \Bigg|\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg|^{2}  $$
+$$P_n(x) =\psi_n (x)^{*}\psi_n (x) =|\psi_n(x)|^{2} = \Bigg|\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg|^{2}  $$
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{lab1/images/probabilityDensity.png} %MISSING Y AXIS
-    \caption{probability density for n=1 to n=5}
+    \caption{Plot showing the probability density functions for (n=1 to n=5) for a particle confined in a box of length 0.1nm}
     \label{fig:probDens}
 \end{figure}
 
@@ -151,66 +137,69 @@ $$P_n(x) = |\Psi_n(x)|^{2} = \Bigg|\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\B
 
 The eigenstates of the system plotted above are stationary. This means that when the system is in one of these eigenstates, all quantum mechanical observables are conserved in time (probability $P=|\Psi(x,t)|^2dx$ is independent of $\phi(t)$, meaning $P=|\psi(x)|^2dx$).
 
-On the other hand, superpositons of eigenfunctions are not stationary. To observe their non-stationary behaviours, namely, their time evolution we must calculate the superposition state for two states. The wavefunction for one state is given by:
+Superpositons of eigenfunctions are not stationary. To observe their non-stationary behaviours, namely, their time evolution we must calculate the superposition state for two states. The wavefunction for one state is given by:
 
-$$\Psi_n (x,t) = \Psi_n (x)\Phi_n (t)$$
-where $\Psi_n (x)= \sqrt{\frac{2}{a}} sin(\frac{\pi n}{a}x)$ and $\Phi_n (t)= e^{-i \omega t}$
+$$\Psi_n (x,t) = \psi_n (x)\phi_n (t)$$
+where $\psi_n (x)= \sqrt{\frac{2}{a}} sin(\frac{\pi n}{a}x)$ and $\Phi_n (t)= e^{-i \omega t}$
 
 The superposition state is therefore given by:
 \begin{equation} \label{eq:superPos}
-\Psi_s (x,t) = \Psi_n (x)e^{-i \omega_{1} t} + \Psi_m (x)e^{-i \omega_{2} t}
+\Psi_s (x,t) = \psi_n (x)e^{-i \omega_{1} t} + \psi_m (x)e^{-i \omega_{2} t}
 \end{equation}
 
-
 This superposition wavefunction needs to be normalised, i. e.:
+$$\int_{ -\infty}^{\infty} A^{*} \Psi_s (x,t)^{*} A\Psi_s (x,t)dx = 1$$
+$$\left | A \right |^2 \int_{ -\infty}^{\infty} \Psi_s (x,t)^{*} \Psi_s (x,t)dx = 1$$
 
-$$\int_{ -\infty}^{\infty} A^{*} \Psi_s (x)^{*} A\Psi_s (x)dx = 1$$
-$$\left | A \right |^2 \int_{ -\infty}^{\infty} \Psi_s (x)^{*} \Psi_s (x)dx = 1$$
+Given $\Psi_s (x,t)=0$ for $x<0, x>a$:
+$$\left | A \right |^2 \int_{0}^{a} \Psi_s (x,t)^{*} \Psi_s (x,t)dx = 1$$
 
-From Figure \ref{fig:particleInABox}:
+Substituting Equation \ref{eq:superPos}:
+$$\left | A \right |^2 \int_{0}^{a} (\psi_n (x)^{*}e^{i \omega_{1} t} + \psi_m (x)^{*}e^{i \omega_{2} t}) (\psi_n (x)e^{-i \omega_{1} t} + \psi_m (x)e^{-i \omega_{2} t})dx = 1$$
+$$\left | A \right |^2 \int_{0}^{a} (\left | \psi_n (x) \right |^2 + \left | \psi_m (x) \right |^2 + \psi_n (x)^{*}\psi_m (x)e^{-i(\omega_{2}- \omega_{1}) t} + \psi_m (x)^{*}\psi_n (x)e^{i(\omega_{2}- \omega_{1}) t})dx = 1$$
 
-$$\left | A \right |^2 \int_{0}^{a} \Psi_s (x)^{*} \Psi_s (x)dx = 1$$
+In this case $\psi_n (x)$ and $\psi_m (x)$ are completely real; thus $\psi_n (x)^{*} = \psi_n (x)$ and $\psi_m (x)^{*} = \psi_m (x)$:
+$$ \left | A \right |^2 \int_{0}^{a}\left( \left | \psi_n (x) \right |^2 + \left | \psi_m (x) \right |^2 + \psi_m (x)\psi_n (x)(e^{-i(\omega_{2}- \omega_{1})t}+e^{i(\omega_{2}- \omega_{1})t})\right)dx = 1$$
 
-Substituting Equation \ref{eq:superPos}
-
-$$\left | A \right |^2 \int_{0}^{a} (\Psi_n (x)^{*}e^{i \omega_{1} t} + \Psi_m (x)^{*}e^{i \omega_{2} t}) (\Psi_n (x)e^{-i \omega_{1} t} + \Psi_m (x)e^{-i \omega_{2} t})dx = 1$$
-$$\left | A \right |^2 \int_{0}^{a} (\left | \Psi_n (x) \right |^2 + \left | \Psi_m (x) \right |^2 + \Psi_n (x)^{*}\Psi_m (x)e^{-i(\omega_{2}- \omega_{1}) t} + \Psi_m (x)^{*}\Psi_n (x)e^{-i(\omega_{1}- \omega_{2}) t})dx = 1$$
-
-$$ \left | A \right |^2 \int_{0}^{a}\left(\frac{2}{a} sin^{2}(\frac{\pi n_1}{a}x)+\frac{2}{a} sin^{2}(\frac{\pi n_2}{a}x)+\frac{2}{a} sin(\frac{\pi n_1}{a}x)sin(\frac{\pi n_2}{a}x)(e^{-i(\omega_{2}- \omega_{1})t}+e^{-i(\omega_{1}- \omega_{2})t})\right)dx = 1$$
+Since $cos(x) = \frac{e^{ix}+e^{-ix}}{2}$:
+$$ \left | A \right |^2 \int_{0}^{a}\left( \left | \psi_n (x) \right |^2 + \left | \psi_m (x) \right |^2 + \psi_m (x)\psi_n (x)(2\cos(\omega_{2}- \omega_{1})t)\right)dx = 1$$
+$$ \left | A \right |^2 \int_{0}^{a}\left(\frac{2}{a} sin^{2}(\frac{\pi n_1}{a}x)+\frac{2}{a} sin^{2}(\frac{\pi n_2}{a}x)+\frac{4}{a} sin(\frac{\pi n_1}{a}x)sin(\frac{\pi n_2}{a}x)(\cos(\omega_{2}- \omega_{1})t)\right)dx = 1$$
 $$...$$
-$$\left | A \right |^2 \left( \frac{2}{a}\left(\frac{a}{2}\right) + \frac{2}{a}\left(\frac{a}{2}\right) + \frac{2}{a}(e^{-i(\omega_{2}- \omega_{1})t}+e^{-i(\omega_{1}- \omega_{2})t})\int_{0}^{a} sin(\frac{\pi n_1}{a}x)sin(\frac{\pi n_2}{a}x)dx \right)=1$$
+$$\left | A \right |^2 \left( \frac{2}{a}\left(\frac{a}{2}\right) + \frac{2}{a}\left(\frac{a}{2}\right) + \frac{4}{a}\cos(\omega_{2}- \omega_{1})t\int_{0}^{a} sin(\frac{\pi n_1}{a}x)sin(\frac{\pi n_2}{a}x)dx \right)=1$$
 
-$$\left | A \right |^2 \left( 1 + 1 + \frac{2}{a}(e^{-i(\omega_{2}- \omega_{1})t}+e^{-i(\omega_{1}- \omega_{2})t})(0) \right)=1$$
+$$\left | A \right |^2 \left( 1 + 1 + \frac{4}{a}\cos(\omega_{2}- \omega_{1})t(0) \right)=1$$
 $$\left | A \right |^2 = \frac{1}{2}$$
 $$\left | A \right | = \sqrt{\frac{2}{a}}$$
-$$\therefore \Psi_s (x) = \sqrt{\frac{1}{2}} \left( \Psi_n (x)e^{-i \omega_{1} t} + \Psi_m (x)e^{-i \omega_{2} t}\right)$$
+$$\therefore \Psi_s (x, t) = \sqrt{\frac{1}{2}} \left( \psi_n (x)e^{-i \omega_{1} t} + \psi_m (x)e^{-i \omega_{2} t}\right)$$
 
 The real part of this superpositioned wavefunction was plotted as shown in Figure \ref{fig:superPosWave}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.75\textwidth]{lab1/images/superpositionWave.png}
-    \caption{Plot two eigenstates, $\psi$ and $\psi$, and the superposition of both eigenstates}
+    \includegraphics[width=0.65\textwidth]{lab1/images/superpositionWave.png}
+    \caption{Plot showing the two eigenstates, $\psi_2 (x)$ and $\psi_3 (x)$, and the superposition of both eigenstates for a particle confined in a box of length 0.1nm at time \textbf{t=1}}
     \label{fig:superPosWave}
 \end{figure}
 
-The probability distribution of the new wavefunction $\Psi_s(x,t)$ was then calculated and plotted at several different times to see how it evolves in time.
+The probability distribution of the new wavefunction $\Psi_s(x,t)$ was then calculated and plotted at several different times to see how it evolves in time, shown in Figure \ref{fig:superPosPDF}.
 
-$$P_s(x, t) = |\Psi_s(x, t)|^{2} = A^{*} \Psi_s (x, t)^{*} A\Psi_s (x, t)$$
-$$P_s(x) = \left | A \right |^2 \Psi_s (x)^{*} \Psi_s (x)$$
-$$P_s(x) = 0.5 (\Psi_n (x)^{*}e^{i \omega_{1} t} + \Psi_m (x)^{*}e^{i \omega_{2} t}) (\Psi_n (x)e^{-i \omega_{1} t} + \Psi_m (x)e^{-i \omega_{2} t})$$
-$$P_s(x) = 0.5 (\left | \Psi_n (x) \right |^2 + \left | \Psi_m (x) \right |^2 + \Psi_n (x)^{*}\Psi_m (x)e^{-i(\omega_{2}- \omega_{1}) t} + \Psi_m (x)^{*}\Psi_n (x)e^{i(\omega_{2}- \omega_{1}) t})$$
-%n. b. $\Psi_n (x)=\Psi_n (x^{*})$ and $\Psi_m (x)=\Psi_m (x^{*})$
-$$\therefore P_s(x) =  0.5 (\left | \Psi_n (x) \right |^2 + \left | \Psi_m (x) \right |^2 + \Psi_n (x)\Psi_m (x)e^{-i(\omega_{2}- \omega_{1}) t} + \Psi_m (x)\Psi_n (x)e^{i(\omega_{2}- \omega_{1}) t})$$
-$$P_s(x) = 0.5 (\left | \Psi_n (x) \right |^2 + \left | \Psi_m (x) \right |^2 + \Psi_n (x)\Psi_m (x)(e^{-i(\omega_{2}- \omega_{1}) t} + e^{i(\omega_{2}- \omega_{1}) t}))$$
-Since $cosx=\frac{e^{-i\omega x}+}{2}$ 
-$$P_s(x) = 0.5 (\left | \Psi_n (x) \right |^2 + \left | \Psi_m (x) \right |^2 + \Psi_n (x)\Psi_m (x)(2cos\omega t))$$
-$$P_s(x) = 0.5 \left | \Psi_n (x) \right |^2 + 0.5\left | \Psi_m (x) \right |^2 + \Psi_n (x)\Psi_m (x)cos\omega t$$
+$$P_s(x, t) = A^{*} \Psi_s (x, t)^{*} A\Psi_s (x, t)$$
+$$P_s(x) = \left | A \right |^2 \Psi_s (x,t)^{*} \Psi_s (x,t)$$
+$$P_s(x) = 0.5 (\psi_n (x)^{*}e^{i \omega_{1} t} + \psi_m (x)^{*}e^{i \omega_{2} t}) (\psi_n (x)e^{-i \omega_{1} t} + \psi_m (x)e^{-i \omega_{2} t})$$
+$$P_s(x) = 0.5 (\left | \psi_n (x) \right |^2 + \left | \psi_m (x) \right |^2 + \psi_n (x)^{*}\psi_m (x)e^{-i(\omega_{2}- \omega_{1}) t} + \psi_m (x)^{*}\psi_n (x)e^{i(\omega_{2}- \omega_{1}) t})$$
+
+As stated earlier $\psi_n (x)=\psi_n (x^{*})$ and $\psi_m (x)=\psi_m (x^{*})$:
+$$\therefore P_s(x) =  0.5 (\left | \psi_n (x) \right |^2 + \left | \psi_m (x) \right |^2 + \psi_n (x)\psi_m (x)e^{-i(\omega_{2}- \omega_{1}) t} + \psi_m (x)\psi_n (x)e^{i(\omega_{2}- \omega_{1}) t})$$
+$$P_s(x) = 0.5 (\left | \psi_n (x) \right |^2 + \left | \psi_m (x) \right |^2 + \psi_n (x)\psi_m (x)(e^{-i(\omega_{2}- \omega_{1}) t} + e^{i(\omega_{2}- \omega_{1}) t}))$$
+
+Since $\cos(x)=\frac{e^{-ix}+e^{ix}}{2}$:
+$$P_s(x) = 0.5 (\left | \psi_n (x) \right |^2 + \left | \psi_m (x) \right |^2 + \psi_n (x)\psi_m (x)(2\cos\omega t))$$
+$$P_s(x) = 0.5 \left | \psi_n (x) \right |^2 + 0.5\left | \psi_m (x) \right |^2 + \psi_n (x)\psi_m (x)\cos\omega t$$
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{lab1/images/superpositionPDF.png}
-    \caption{Probability density function for the superimposed state for various times}
+    \caption{Probability density function for the superimposed state, $\Psi_s (x,t)$, plotted at various times}
     \label{fig:superPosPDF}
 \end{figure}
 
@@ -220,7 +209,14 @@ The results from this lab is entirely based on theory so there are no discrepanc
 
 To ensure this is true 
 
-When calculating $E_n$ for $n=1,2,3,4,5$ it is clear to see that the ratio of $\frac{E_n}{E_1}$ is always equal to $n^{2}$ which agrees with Equation \ref{eq:energySpacing}. The energy levels must therefore become more sparse as $n$ increases, which can be seen in Figure \ref{fig:eigenEnergy}
+When calculating $E_n$ for $n=1,2,3,4,5$ it is clear to see that the ratio of $\frac{E_n}{E_1}$ is always equal to $n^{2}$
+Substituting $n=1$:
+$$E_1 = \frac{\hbar ^{2}\pi^{2}}{2ma^{2}}$$
+
+\begin{equation}%\label{eq:energySpacing}
+\implies E_n =  n^{2}E_1
+\end{equation}
+The energy levels must therefore become more sparse as $n$ increases, which can be seen in Figure \ref{fig:eigenEnergy}
 
 All of the wave functions are 0 at each wall which means that the boundary conditions were always satisfied.
 
@@ -278,3 +274,8 @@ n=2 to n=1 photon wavelength:  1.0990625288355668e-08 m
 \end{lstlisting}
 
 \section{Conclusions}
+
+\begin{itemize}
+    \item Visualise the energy levels of a confined particle as well as the behaviour of its quantum wavefunction,
+    \item Obtain deeper understanding and visualise the nature of qunatum superposition.
+\end{itemize}

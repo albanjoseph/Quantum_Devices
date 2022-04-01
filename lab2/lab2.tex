@@ -5,10 +5,10 @@
 
 Conventionally, information is stored in bits, as a series of 0s and 1s. However, in quantum computing `quantum bits', or simply `qubits', are used. These obey the rules of quantum mechanics and allow for information to be processed in new and different ways.
 
-In order to manipulate these qubits (i.e. change them between quantum states) `quantum gates' can be applied to build a 'quantum circuit'. A quantum circuit is a computational routine consisting of coherent quantum operations on quantum data, such as qubits, and concurrent real-time classical computation. It is an ordered sequence of quantum gates, measurements and resets, all of which may be conditioned on and use data from the real-time classical computation.
+In order to manipulate these qubits (i.e. change them between quantum states) `quantum gates' can be applied to build a `quantum circuit'. A quantum circuit is a computational routine consisting of coherent quantum operations on quantum data, such as qubits, and concurrent real-time classical computation. It is an ordered sequence of quantum gates, measurements and resets, all of which may be conditioned on and use data from the real-time classical computation.
 
 \section{Objectives}
-The purpose of this lab is to investigate quantum bits and quantum circuits using IBM's `qiskit`. Thus, the following objectives were pursued:
+The purpose of this lab is to investigate quantum bits and quantum circuits using `qiskit`. Thus, the following objectives were pursued:
 \begin{itemize}
     \item Become familiar with `qiskit'
     \item Implement quantum gates and visualise the state of a qubit through the Bloch sphere
@@ -17,7 +17,8 @@ The purpose of this lab is to investigate quantum bits and quantum circuits usin
 
 \section{Methods}
 Quantum circuits were implemented and visualised using python in Jupyter Notebook -- a web-based interactive computational environment for programming languages. Specifically, a library named `qiskit' was used -- an open-source software development kit for working with quantum computers. It provides tools for creating quantum programs and for running them on simulators on a local computer. 
-The Aer simulator was used to simulate realistic quantum systems; this provides high-performance quantum computing simulators with realistic noise models locally, and visualization allows you to see what you states look like
+
+The Aer simulator was used to simulate realistic quantum systems with realistic noise models.
 
 To evaluate the rigidity of the analytical predictions from qiskit, the circuits were built on protoype quantum devices provided by IBM Quantum. `The IBM Quantum Composer' is an online platform allowing public access to remote quantum computing services.
 
@@ -29,12 +30,12 @@ Qubits can be represented by 2D vectors, their states are limited to the form:
 $$ |q\rangle = \cos{\tfrac{\theta}{2}}|0\rangle + e^{i\phi}\sin{\tfrac{\theta}{2}}|1\rangle $$
 where $\theta$ and $\phi$ are real numbers. 
 
-This state can be visualized using a `Bloch Sphere' (a geometrical representation of a two-level qubit) and quantum gates can be used to manipulate the state. An important feature of quantum circuits is that quantum gates are always reversible. These reversible gates can be represented as matrices, and as rotations around the Bloch sphere.
+This state can be visualized using a `Bloch Sphere' (a geometrical representation of a two-level qubit) and quantum gates can be used to manipulate the state. These gates can be represented as matrices, and as rotations around the Bloch sphere.
 
-In this lab report, Pauli gates, the Hadamard gate and some Multi-qubit gates are analysed in detail.
+In this lab report, Pauli gates, the Hadamard gate and some Multi-qubit gates are analysed.
 
 \subsection{The Pauli Gates}
-Pauli matrices can represent some commonly used quantum gates. 
+%Pauli matrices can represent some commonly used quantum gates. 
 
 \subsubsection{The X Gate}
 The X gate is represented by the Pauli-X matrix:
