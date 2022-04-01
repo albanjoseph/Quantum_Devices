@@ -233,28 +233,28 @@ A 2-qubit quantum circuit was created, where the 2 qubits are entangled and the 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.4\textwidth]{lab2/images/entangleMeasure.png}
-    \caption{entangleMeasure} 
+    \caption{Diagram of circuit for measuring entangled qubits} 
     \label{fig:entangleMeasure}
 \end{figure}
 
-So both are initialised as 0. H puts the top in superposition, meaning it is 50\% between 0 and 1. Then when its used as a control bit, its kinda halfway between 0 and 1 meaning half the time it will be a 1 switching the second bit to a 1, then the other half it will be 0 meaning the second qubit will stay 0. As a result, we would expect two possible results from this circuit. Half of the time its 00 and the other half itll be 11. This was circuit was simulated and the results can be found in Figure \ref{fig:qiskitHistogram}.
+Both qubits were initialised in state $|0\rangle$. The H gate \textbf{puts} q0 in a superposition state; meaning, when its measured 50\% of the time the qubit will collapse into state $|0\rangle$, otherwise it will collapse into state $|1\rangle$. q0 is then used as a control bit meaning half of the time it will switch the q1 to state $|1\rangle$, the other half q1 will remain unchanged. As a result, two possible results are expected from this circuit. 50\% of the time the output is expected to be in state $|00\rangle$ and 50\% of the time the output is expected to be in state $|11\rangle$. This was circuit was simulated and the results can be found in Figure \ref{fig:qiskitHistogram}.
 
-The results show that two 00 and 11 came up which made sense,  however it was not a 50/50 split as expected. This is discussed further in Section \ref{sec:discussion}. To determine a more real response IBMs quantum computer was used. The results can be seen in Figure \ref{fig:ibmHistogram}. Again, there was not a co
+The results were slightly different than expected. The simlation was run 1025 times, and 49\% of the time the output was in state $|00\rangle$, 51\% of the time the output was in state $|11\rangle$ (not a 50/50 split as expected). This is discussed further in Section \ref{sec:discussion}. To determine a realistic response IBMs quantum computer was used. The results can be seen in Figure \ref{fig:ibmHistogram}. Again, there was not a complete agreement with the theory. This is explained in Section \ref{sec:discussion}.
 
 \begin{figure}[h]
     \centering
     \begin{subfigure}[h]{0.5\textwidth}
         \includegraphics[width=\textwidth]{lab2/images/qiskitHistogram.png}
-        \caption{qiskitHistogram} 
+        \caption{Probably of output according to qiskit models/Aer simulator} 
         \label{fig:qiskitHistogram}
     \end{subfigure}
     \hfill
     \begin{subfigure}[h]{0.43\textwidth}
         \includegraphics[width=\textwidth]{lab2/images/ibmHistogram.png}
-        \caption{ibmHistogram} 
+        \caption{Frequency of output states measured using IBM's quantum computer} 
         \label{fig:ibmHistogram}
     \end{subfigure}
-    \caption{Histogram showing a) qiskit and b) ibm} 
+    \caption{Histogram showing a) the probability of measuring the output state according to qiskit and b) the output measured after running circuit through IBM's qunatum computer} 
     \label{fig:hisogram}
 \end{figure}
 
