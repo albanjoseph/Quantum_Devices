@@ -1,9 +1,12 @@
 \renewcommand{\chaptername}{March 8th: Lab}
 \chapter{Qubits and Quantum Circuits}
-%rotate the STATE? or QUBIT?
-%centre captions
 
-Conventionally, information is stored in bits, as a series of 0s and 1s. However, in quantum computing `quantum bits', or simply `qubits', are used. These obey the rules of quantum mechanics and allow for information to be processed in new and different ways.
+%Comparison of results with theory + bit above
+%Discussion
+%Conclusion
+
+Conventionally, information is stored in bits, as a series of 0s and 1s. However, in quantum computing `quantum bits', or simply `qubits', are used. These obey the rules of quantum mechanics and allow for information to be processed in new and different ways. %qubits are the fundamental unit of computation in a quantum computer
+%A qubit (or quantum bit) is the quantum mechanical analogue of a classical bit. In classical computing the information is encoded in bits, where each bit can have the value zero or one. In quantum computing the information is encoded in qubits. A qubit is a two-level quantum system
 
 In order to manipulate these qubits (i.e. change them between quantum states) `quantum gates' can be applied to build a `quantum circuit'. A quantum circuit is a computational routine consisting of coherent quantum operations on quantum data, such as qubits, and concurrent real-time classical computation. It is an ordered sequence of quantum gates, measurements and resets, all of which may be conditioned on and use data from the real-time classical computation.
 
@@ -22,8 +25,6 @@ The Aer simulator was used to simulate realistic quantum systems with realistic 
 
 To evaluate the rigidity of the analytical predictions from qiskit, the circuits were built on protoype quantum devices provided by IBM Quantum. `The IBM Quantum Composer' is an online platform allowing public access to remote quantum computing services.
 
-%Reference screenshots of code
-
 \section{Results}
 Qubits can be represented by 2D vectors, their states are limited to the form:
 
@@ -33,9 +34,9 @@ where $\theta$ and $\phi$ are real numbers.
 This state can be visualized using a `Bloch Sphere' (a geometrical representation of a two-level qubit) and quantum gates can be used to manipulate the state. These gates can be represented as matrices, and as rotations around the Bloch sphere.
 
 In this lab report, Pauli gates, the Hadamard gate and some Multi-qubit gates are analysed.
+%A normal logic gate gets a simple set of inputs and produces one definite output. A quantum gate manipulates an input of superpositions, rotates probabilities, and produces another superposition as its output.
 
 \subsection{The Pauli Gates}
-%Pauli matrices can represent some commonly used quantum gates. 
 
 \subsubsection{The X Gate}
 The X gate is represented by the Pauli-X matrix:
@@ -57,7 +58,7 @@ $$ X|0\rangle = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} 1 \\
 X|1\rangle = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = |0\rangle$$
 
 %DEMONSTRATED
-The circuit in Figure \ref{fig:xGate} was implemented and the states were observed using a Bloch sphere.  The X gate performed a rotation by $\pi$ around x-axis of the Bloch sphere (the qubit switched to state $|1\rangle$ after being initialised in state~$|0\rangle$), shown in Figure \ref{fig:bSphereXGate}.
+The circuit (shown in Figure \ref{fig:xGate}) was constructed using qiskit and the states were observed using a Bloch sphere which is seen in Figure \ref{fig:bSphereXGate}. The X gate performed a rotation by $\pi$ around x-axis of the Bloch sphere (the qubit switched to state $|1\rangle$ after being initialised in state~$|0\rangle$).
 
 \begin{figure}[h]
     \centering
@@ -122,13 +123,13 @@ The reason for this is explained below:
     \begin{enumerate}
         \item in state $|0\rangle$
     \end{enumerate}
-    \item The X gate rotated this state by $\pi$ around the x-axis
+    \item The X gate rotated this by $\pi$ around the x-axis of the Bloch sphere
     \begin{enumerate}
         \item resulting with a qubit in state $|1\rangle$
     \end{enumerate}
-    \item The Y gate then rotated this qubit by $\pi$ around the y-axis
+    \item The Y gate then rotated this by $\pi$ around the y-axis of the Bloch sphere
     \begin{enumerate}
-        \item resulting in the qubit being in state~$|0\rangle$
+        \item resulting in the qubit being in state $|0\rangle$
     \end{enumerate} 
 \end{enumerate}
 
@@ -202,7 +203,6 @@ The resultant state of the qubit after being passed through the circuit shown in
     \label{fig:bSphereHZHGate}
 \end{figure}
 
-%FIX?
 It is clear upon comparing the initial state (Figure \ref{fig:hzhGate1}) to the final state (Figure \ref{fig:hzhGate4}) that applying the sequence of gates: HZH has an identical effect to applying a single X gate (see Figure \ref{fig:xyGateBloc}).
 
 \subsection{Multi-Qubit Gates}
@@ -224,10 +224,6 @@ The CNOT gate is a conditional two-qubit gate that performs an X gate on the sec
 \caption{Truth table for CNOT gate}
 \end{table}
 
-
-%q\_1 as the control and q\_2 as the target
-
-
 A 2-qubit quantum circuit was created, where the 2 qubits are entangled and the output was measured. The circuit diagram is shown in Figure \ref{fig:entangleMeasure}
 
 \begin{figure}[h]
@@ -237,32 +233,51 @@ A 2-qubit quantum circuit was created, where the 2 qubits are entangled and the 
     \label{fig:entangleMeasure}
 \end{figure}
 
-Both qubits were initialised in state $|0\rangle$. The H gate transforms q0 into a superposition of states; meaning, when its measured 50\% of the time the qubit will collapse into state $|0\rangle$, otherwise it will collapse into state $|1\rangle$. q0 is then used as a control bit meaning half of the time it will switch the q1 to state $|1\rangle$, the other half q1 will remain unchanged. As a result, two possible results are expected from this circuit. 50\% of the time the output is expected to be in state $|00\rangle$ and 50\% of the time the output is expected to be in state $|11\rangle$. This was circuit was simulated and the results can be found in Figure \ref{fig:qiskitHistogram}.
+Both qubits were initialised in state $|0\rangle$. The H gate transforms q0 so that its state occupies a superposition of $|0\rangle$ and $|1\rangle$. This means 50\% of the time the qubit will collapse into state $|0\rangle$, and the other 50\% it will collapse into state $|1\rangle$, after being measured. q0 is then used as a control bit meaning half of the time it will switch the q1 to state $|1\rangle$, the other half q1 will remain unchanged in state $|0\rangle$. As a result, two possible outcomes are expected from this circuit:
+\begin{itemize}
+    \item 50\% of the time the output is expected to be in state $|00\rangle$
+    \item 50\% of the time the output is expected to be in state $|11\rangle$
+\end{itemize}
 
-The results were slightly different than expected. The simlation was run 1025 times, and 49\% of the time the output was in state $|00\rangle$, 51\% of the time the output was in state $|11\rangle$ (not a 50/50 split as expected). This is discussed further in Section \ref{sec:discussion}. To determine a realistic response IBMs quantum computer was used. The results can be seen in Figure \ref{fig:ibmHistogram}. Again, there was not a complete agreement with the theory. This is explained in Section \ref{sec:discussion}.
+This was circuit was simulated and the results were not exactly as expected, shown in Figure \ref{fig:qiskitHistogram}. The simulation was run 1024 times: 49\% of the time the output was in state $|00\rangle$, and 51\% of the time the output was in state $|11\rangle$ -- not a 50/50 split as expected. This is discussed further in Section \ref{sec:discussion}. To determine a realistic response IBMs quantum computer was used. The results, again, were not in complete agreement with the theory, shown in Figure \ref{fig:ibmHistogram}. An explanation for this can be found in Section \ref{sec:discussion}.
 
 \begin{figure}[h]
     \centering
     \begin{subfigure}[h]{0.5\textwidth}
         \includegraphics[width=\textwidth]{lab2/images/qiskitHistogram.png}
-        \caption{Probably of output according to qiskit models/Aer simulator} 
+        \caption{} 
         \label{fig:qiskitHistogram}
     \end{subfigure}
     \hfill
     \begin{subfigure}[h]{0.43\textwidth}
         \includegraphics[width=\textwidth]{lab2/images/ibmHistogram.png}
-        \caption{Frequency of output states measured using IBM's quantum computer} 
+        \caption{} 
         \label{fig:ibmHistogram}
     \end{subfigure}
-    \caption{Histogram showing a) the probability of measuring the output state according to qiskit and b) the output measured after running circuit through IBM's qunatum computer} 
+    \caption{Histogram showing a) the probability of measuring each possible state according to qiskit and b) the frequency of the states measured after implementing the circuit using IBM's quantum computer} 
     \label{fig:hisogram}
 \end{figure}
 
-\section{Comparison of results with theory}
+\section{Comparison of Results with Theory} \label{sec:comparison}
+
+In general the results were consistent with the theoretical predictions, however, as soon as measurements were taken the outcome was slightly different as expected. For example, the histogram shown in Figure \ref{fig:qiskitHistogram} shows a 49/51 split in results (not 50/50 split as expected). This is because the Aer simulator was used which introduces noise. `Noise' describes all of the things that cause interference in a quantum computer, thus, the ideal case is no longer being considered. In reality, a quantum computer is susceptible to interference from all sorts of sources, like electromagnetic signals, 
+disturbances in the Earth’s magnetic field. When qubits in a quantum computer are exposed to this kind of noise, the information in them gets degraded. This noise resulted in the qubits collapsing into not exactly 50/50. Can improve this by increasing the number of `shots' -- by increasing the number of times the simulation is run, more likely to be closer to the probability stated by the mathematics. 
+
+Again, the final state was not 50/50 between state $|00\rangle$ and $|11\rangle$. In fact, occasionally the final state was found to be in state $|01\rangle$ and $|10\rangle$. This is because qubits are very fragile and are prone to errors and other quantum noise.% The characteristics that make quantum systems powerful also makes them delicate.
+Disturbances among qubits can corrupt the state of the qubits and cause errors such as bit flip errors -- an error where the qubits computational state flips from 1 to 0 or vice versa. This explains why occasionally the system was measured to be in state $|01\rangle$ and $|10\rangle$. These errors can be reduced by employing error correction algorithms.
+``In addition to building qubits that are physically less prone to mistakes, scientists often hope to compensate for high error rates by spreading quantum information across many redundant qubits''
+Quantum error correction (QEC) is used in quantum computing to protect quantum information from errors due to decoherence and other quantum noise. Quantum error correction is essential if one is to achieve fault-tolerant quantum computation that can deal not only with noise on stored quantum information%, but also with faulty quantum gates, faulty quantum preparation, and faulty measurements.
+Another reason for the error could be due to faulty measurements. Measurements generally disturb quantum systems.% The conditions under which measurement disturbance arises have now been well studied, and are intimately connected with whether the two observables are compatible. Any error from meaurements can be decreased by increase the number of shots.
+The disturbance caused by measurement depends on the details of the interaction between system and apparatus; this can generally be improved by increasing the number of shots.
+
+%slightest interaction with the environment causes a qubit to collapse into a discrete state of either 0 or 1
+%This phenomenon poses significant challenges to the dependability of quantum computers
+%using quantum error correction qubit 
+
 \section{Discussion} \label{sec:discussion}
 \textbf{Question 1:}
 
-Initialise a qubit, and apply the X gate to it. Confirm your result by drawing the circuit and visualing the flipped state using the Block sphere (use/copy and paste the examples above wherever appropriate).
+Initialise a qubit, and apply the X gate to it. Confirm your result by drawing the circuit and visualising the flipped state using the Block sphere (use/copy and paste the examples above wherever appropriate).
 
 
 \textbf{Question 2:}

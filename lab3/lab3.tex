@@ -1,24 +1,15 @@
 \renewcommand{\chaptername}{March 15th: Lab}
 \chapter{Quantum Teleportation}
+
 In quantum teleportation, the properties of quantum entanglement are used to send a qubit between observers without physically moving the involved qubit. The qubits themselves are not really teleported, but the state of one qubit is destroyed on one side and extracted on the other side, so the information that the state encodes is communicated. The usefulness of quantum teleportation lies in its ability to send quantum information arbitrarily far distances without exposing quantum states to thermal decoherence from the environment or other adverse effects.
-%The number of entangled states necessary to accomplish this is well outside anything physically achievable, since maintaining such a massive number of entangled states without decohering is a difficult problem.
 
-\section{Method}
-
+\section{Results} \label{sec:teleResults}
 The following qubit state  $|\Psi \rangle = \alpha |0 \rangle + \beta |1 \rangle$ needs to be transferred. By taking advantage of two classical bits and an entangled qubit pair, the state $|\Psi \rangle$ can be transferred.
 
 The following steps were followed to create an entanglement protocol and to perform quantum teleportation.
 
-\begin{enumerate}
-    \item Use a third party entangled qubit pair
-    \item Perform operations on the qubit that must be sent
-    \item Send the results over a classical communication channel
-    \item Perform some operations on the received information to receive the qubit
-\end{enumerate}
+\textbf{Step 1:} Use a third party entangled qubit pair.
 
-\section{Results}
-
-\subsubsection{Step 1}
 q1 and q2 were entangled together to be used as an entangled pair.
 \begin{figure}[h]
 \centering
@@ -59,7 +50,8 @@ $\rightarrow$
 
 Python library with tools to facilitate simulation of quantum systems
 
-\subsubsection{Step 2}
+\textbf{Step 2:} Perform operations on the qubit that must be sent.
+
 Backwards enanglement thing
 
 \begin{figure}[h]
@@ -100,7 +92,8 @@ $\rightarrow$
 \end{figure}
 
 
-\subsubsection{Step 3}
+\textbf{Step 3:} Send the results over a classical communication channel.
+
 Measure
 
 \begin{figure}[h]
@@ -140,7 +133,8 @@ $\rightarrow$
 \label{step3}
 \end{figure}
 
-\subsubsection{Step 4}
+\textbf{Step 4:} Perform some operations on the received information to receive the qubit.
+
 The conditions that had to be satisfied
 control if gates
 
@@ -206,11 +200,13 @@ Qubit 3 was initialised to be the same as qubit 0 (the qubit that is being `quan
     \label{fig:ibmTeleport}
 \end{figure}
 
-\section{Comparison of results with theory}
+\section{Comparison of Results with Theory}
 \section{Discussion} \label{sec:discussTeleport}
 \textbf{Question 1:}
 
-Follow the steps above, and the knowledge of qiskit you now have from Lab 2 to create an entanglement protocol. You may also benefit from the little revision above which introduce a couple of new features of qiskit
+Follow the steps above, and the knowledge of qiskit you now have from Lab 2 to create a teleportation protocol. You may also benefit from the little revision above which introduce a couple of new features of qiskit
+
+Steps for teleportation protocol were followed and are discussed in Section \ref{sec:teleResults}. See Figure \ref{fig:teleportCircuit} for the final circuit diagram.
 
 \textbf{Question 2:}
 

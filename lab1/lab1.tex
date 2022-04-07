@@ -1,8 +1,8 @@
 \renewcommand{\chaptername}{Feb 8th: Lab}
 \chapter{Quantum Confinement and Superposition}
-%FIX LEGENEND
-%CHANGE X AXIS X INSTEAD OF A
-%CHECK PSI vs psi
+%Comparison of Results with Theory
+%Discussion
+%Conclusion
 In quantum mechanics, particles can be `spatially confined' to a given energy potential where the energy levels of the confined particles will not remain continuous but instead are instead quantized.
 Quantum mechanics allows us to obtain the wave functions of the confined particle and their discrete set of energy levels -- such kinds of effects appear when the dimensions of the potential approach the deBroglie wavelength of particle. These effects are the basis for several semiconductor devices.
 
@@ -11,7 +11,7 @@ In this lab, the infinite square well (often called ``particle in a box'') probl
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{lab1/images/pIAB.png}
-    \caption{Particle in a Box}
+    \caption{Particle in a Box} %reference
     \label{fig:particleInABox}
 \end{figure}
 
@@ -74,22 +74,22 @@ The values for the quantised energies can be found in Table \ref{tab:qEnerergy}:
 \subsection{Eigenfunctions}\label{sec:eigenFunction}
 Equation \ref{eq:shrod} must firstly be rearranged to determine the eigenfunction -- aka the normalised wavefunction:
 
-$$\frac{\delta^{2}}{\delta x^{2}}\Psi (x) = \frac{-2m}{\hbar} E \Psi (x) = -k^2 \Psi (x)$$
-$$\frac{\delta^{2}}{\delta x^{2}}\Psi (x) + k^2 \Psi (x) = 0$$
+$$\frac{\delta^{2}}{\delta x^{2}}\psi (x) = \frac{-2m}{\hbar} E \psi (x) = -k^2 \psi (x)$$
+$$\frac{\delta^{2}}{\delta x^{2}}\psi (x) + k^2 \psi (x) = 0$$
 where $k=\frac{-2m}{\hbar}$
 
 To satisfy this second order homogeneous differential equation, the general equation is given by the following expression:
 
-$$\Psi (x) = A \sin(kx) + B \cos(kx)$$
+$$\psi (x) = A \sin(kx) + B \cos(kx)$$
 
-Applying the boundary condition, $\Psi (0)$=0:
+Applying the boundary condition, $\psi (0)$=0:
 \begin{align*}
 \implies 0 &= A sin(0) + B cos(0)\\
  0 &= B\\
-\therefore \Psi (kx) &= A sin(kx)
+\therefore \psi (kx) &= A sin(kx)
 \end{align*}
 
-Applying the boundary condition, $\Psi (a)$=0:
+Applying the boundary condition, $\psi (a)$=0:
 \begin{align*}
 \hspace{3.5cm} \implies 0 &= A sin(ka)\\
 ka &= \pi n & \text{where } n \in \mathbb{N}\\
@@ -139,7 +139,7 @@ The eigenstates of the system plotted above are stationary. This means that when
 Superpositons of eigenfunctions are not stationary. To observe their non-stationary behaviours, namely, their time evolution we must calculate the superposition state for two states. The wavefunction for one state is given by:
 
 $$\Psi_n (x,t) = \psi_n (x)\phi_n (t)$$
-where $\psi_n (x)= \sqrt{\frac{2}{a}} sin(\frac{\pi n}{a}x)$ and $\Phi_n (t)= e^{-i \omega t}$
+where $\psi_n (x)= \sqrt{\frac{2}{a}} sin(\frac{\pi n}{a}x)$ and $\phi_n (t)= e^{-i \omega t}$
 
 The superposition state is therefore given by:
 \begin{equation} \label{eq:superPos}
@@ -203,7 +203,7 @@ $$P_s(x) = 0.5 \left | \psi_n (x) \right |^2 + 0.5\left | \psi_m (x) \right |^2 
     \label{fig:superPosPDF}
 \end{figure}
 
-\section{Comparison of results with theory}
+\section{Comparison of Results with Theory}
 
 The results from this lab is entirely based on theory so there are no discrepancies of the results with theory.
 
