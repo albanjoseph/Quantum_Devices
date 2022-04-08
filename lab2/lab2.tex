@@ -5,6 +5,7 @@
 %Discussion
 %Conclusion
 
+%Python library with tools to facilitate simulation of quantum systems
 Conventionally, information is stored in bits, as a series of 0s and 1s. However, in quantum computing `quantum bits', or simply `qubits', are used. These obey the rules of quantum mechanics and allow for information to be processed in new and different ways. %qubits are the fundamental unit of computation in a quantum computer
 %A qubit (or quantum bit) is the quantum mechanical analogue of a classical bit. In classical computing the information is encoded in bits, where each bit can have the value zero or one. In quantum computing the information is encoded in qubits. A qubit is a two-level quantum system
 
@@ -263,16 +264,6 @@ This was circuit was simulated and the results were not exactly as expected, sho
 In general the results were consistent with the theoretical predictions, however, as soon as measurements were taken the outcome was slightly different as expected. For example, the histogram shown in Figure \ref{fig:qiskitHistogram} shows a 49/51 split in results (not 50/50 split as expected). This is because the Aer simulator was used which introduces noise. `Noise' describes all of the things that cause interference in a quantum computer, thus, the ideal case is no longer being considered. In reality, a quantum computer is susceptible to interference from all sorts of sources, like electromagnetic signals, 
 disturbances in the Earth’s magnetic field. When qubits in a quantum computer are exposed to this kind of noise, the information in them gets degraded. This noise resulted in the qubits collapsing into not exactly 50/50. Can improve this by increasing the number of `shots' -- by increasing the number of times the simulation is run, more likely to be closer to the probability stated by the mathematics. 
 
-Again, the final state was not 50/50 between state $|00\rangle$ and $|11\rangle$. In fact, occasionally the final state was found to be in state $|01\rangle$ and $|10\rangle$. This is because qubits are very fragile and are prone to errors and other quantum noise.% The characteristics that make quantum systems powerful also makes them delicate.
-Disturbances among qubits can corrupt the state of the qubits and cause errors such as bit flip errors -- an error where the qubits computational state flips from 1 to 0 or vice versa. This explains why occasionally the system was measured to be in state $|01\rangle$ and $|10\rangle$. These errors can be reduced by employing error correction algorithms.
-``In addition to building qubits that are physically less prone to mistakes, scientists often hope to compensate for high error rates by spreading quantum information across many redundant qubits''
-Quantum error correction (QEC) is used in quantum computing to protect quantum information from errors due to decoherence and other quantum noise. Quantum error correction is essential if one is to achieve fault-tolerant quantum computation that can deal not only with noise on stored quantum information%, but also with faulty quantum gates, faulty quantum preparation, and faulty measurements.
-Another reason for the error could be due to faulty measurements. Measurements generally disturb quantum systems.% The conditions under which measurement disturbance arises have now been well studied, and are intimately connected with whether the two observables are compatible. Any error from meaurements can be decreased by increase the number of shots.
-The disturbance caused by measurement depends on the details of the interaction between system and apparatus; this can generally be improved by increasing the number of shots.
-
-%slightest interaction with the environment causes a qubit to collapse into a discrete state of either 0 or 1
-%This phenomenon poses significant challenges to the dependability of quantum computers
-%using quantum error correction qubit 
 
 \section{Discussion} \label{sec:discussion}
 \textbf{Question 1:}
@@ -286,13 +277,24 @@ Apply the x and y gates to the qubit above and draw it on your screen.
 To be frank. That is not a question.
 
 \textbf{Question 3:}
-Show mathematically that applying the sequence of gates: HZH, to any qubit state is equivalent to applying an X gate. Then, write a circuit that will show this (you can check each step/rotation, by ploting the new state on the Bloch Sphere each time.
+Show mathematically that applying the sequence of gates: HZH, to any qubit state is equivalent to applying an X gate. Then, write a circuit that will show this (you can check each step/rotation, by plotting the new state on the Bloch Sphere each time.
 
 
 \textbf{Question 4:}
 Build a 2-qubit quantum circuit where the 2 qubits are entangled and measure the output. Does this agree with the mathematical prediction? If not, why would you say that is so
 
 \textbf{Question 5:}
-Use IBM composer and compare its results to what you obtained above. Are they different? How so? Is there anything you can do to make the results come closer to the mathematica expectation?
+Use IBM composer and compare its results to what you obtained above. Are they different? How so? Is there anything you can do to make the results come closer to the mathematical expectation?
+
+Again, the final state was not 50/50 between state $|00\rangle$ and $|11\rangle$. In fact, occasionally the final state was found to be in state $|01\rangle$ and $|10\rangle$. This is because qubits are very fragile and are prone to errors and other quantum noise.% The characteristics that make quantum systems powerful also makes them delicate.
+Disturbances among qubits can corrupt the state of the qubits and cause errors such as bit flip errors -- an error where the qubits computational state flips from 1 to 0 or vice versa. This explains why occasionally the system was measured to be in state $|01\rangle$ and $|10\rangle$. These errors can be reduced by employing error correction algorithms.
+``In addition to building qubits that are physically less prone to mistakes, scientists often hope to compensate for high error rates by spreading quantum information across many redundant qubits''
+Quantum error correction (QEC) is used in quantum computing to protect quantum information from errors due to decoherence and other quantum noise. Quantum error correction is essential if one is to achieve fault-tolerant quantum computation that can deal not only with noise on stored quantum information%, but also with faulty quantum gates, faulty quantum preparation, and faulty measurements.
+Another reason for the error could be due to faulty measurements. Measurements generally disturb quantum systems.% The conditions under which measurement disturbance arises have now been well studied, and are intimately connected with whether the two observables are compatible. Any error from meaurements can be decreased by increase the number of shots.
+The disturbance caused by measurement depends on the details of the interaction between system and apparatus; this can generally be improved by increasing the number of shots.
 
 \section{Conclusions}
+
+In this lab, quantum circuits were implemented and visualised using qiskit. Through the use of circuit diagrams and Bloch sphere's, a deeper understanding of quantum gates and quantum operations was achieved. The objectives were fulfilled with ease, therefore I do not believe any changes are necessary to attain them. I believe this lab was an excellent introduction to quantum circuits as I understood how quantum gates work and can be used, somewhat similar to classical circuits 
+
+introduced to quantum gates in a familiar way to classical gates

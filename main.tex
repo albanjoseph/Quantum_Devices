@@ -6,7 +6,6 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{sectsty}
-\chapternumberfont{\small}
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage{subcaption}
@@ -16,6 +15,7 @@
 \usepackage{lipsum}
 \usepackage{minted}
 \usepackage{xcolor}
+\usepackage{caption}
 \definecolor{LightGray}{gray}{0.9}
 
 \lstdefinestyle{base}{
@@ -36,9 +36,15 @@
 Need to comment code.
 \end{abstract}
 
-\include{lab1/lab1.tex}
+
 
 \include{lab2/lab2.tex}
+
+
+
+\appendix
+
+\include{lab1/lab1.tex}
 
 \include{lab3/lab3.tex}
 

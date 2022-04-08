@@ -1,4 +1,3 @@
-\renewcommand{\chaptername}{Feb 8th: Lab}
 \chapter{Quantum Confinement and Superposition}
 %Comparison of Results with Theory
 %Discussion
@@ -207,40 +206,22 @@ $$P_s(x) = 0.5 \left | \psi_n (x) \right |^2 + 0.5\left | \psi_m (x) \right |^2 
 
 The results from this lab is entirely based on theory so there are no discrepancies of the results with theory.
 
-To ensure this is true 
-
-When calculating $E_n$ for $n=1,2,3,4,5$ it is clear to see that the ratio of $\frac{E_n}{E_1}$ is always equal to $n^{2}$
-Substituting $n=1$:
+When calculating $E_n$ for $n=1,2,3,4,5$ it was clear to see that the ratio of $\frac{E_n}{E_1}$ is always equal to $n^{2}$. This can be proved mathematically by substituting $n=1$:
 $$E_1 = \frac{\hbar ^{2}\pi^{2}}{2ma^{2}}$$
 
 \begin{equation}%\label{eq:energySpacing}
 \implies E_n =  n^{2}E_1
 \end{equation}
-The energy levels must therefore become more sparse as $n$ increases, which can be seen in Figure \ref{fig:eigenEnergy}
+The energy levels must therefore become more sparse as $n$ increases, which can be seen in Figure~\ref{fig:eigenEnergy}.
 
-All of the wave functions are 0 at each wall which means that the boundary conditions were always satisfied.
+All of the wave functions were 0 at each wall which means that the boundary conditions were always satisfied.
 
 The peak wavefunctions $\approx \sqrt{2/L}$ and the peak probability is no higher than $2/L$.
 
-The area under the probability density functions must always be equal to 1. To verify this the trap function was used.
-
-Talk about plotting the real part and leaving out the imaginary part?
+To ensure the correct PDF was achieved, the trapz function was used. This function integrated was used to integrate the PDF and the area under the curve was always found to be $\approx 1$.
 
 
-Also, the maximum of each wavefunction reaches the theoretical limit without surpassing it. The limit is:
-
-$$ \text{Maximum}(|\Psi_n(x)|) = \sqrt{\frac{2}{L}} = \sqrt{\frac{2}{0.1e-9}} \approx  141421 $$
-
-This is the necessary amplitude of the wave to achieve a normalised wavefunction.
-The maximum of the wavefunction was found to be $141421$, \textbf{indicating that the plot is accurate. The same can be seen for Figure 1.3, where the theoretical limit is}:
-
-$$ \text{Maximum}(|\Psi_n(x)|^{2}) = \frac{2}{L} = \frac{2}{0.1 \times 10^{-9}} = 2e^{10} $$
-
-Again the peak value of the PDF was found to be $2e10$, \textbf{confirming the accuracy}.
-
-\textbf{To confirm the PDF matches the theory and is being plotted correctly, it has to always satisfy the normalisation condition $\int_{0}^{a} |\Psi_s(x,t)|^{2} \,\delta x = 1$. By using the \textit{'trapz'} function to calculate an approximate area under the curve using the trapezium rule, it was found that the area ranged from 0.999998 to 1.000003 as $t$ progressed. The source of error comes from the intrinsic error of the trapezium rule and how the trapeziums cannot ever have infinitesimally small width}
-
-Finally, by visual inspection we can see that the superposition is correct for all values of $t$. By choosing a location where one of $|\Psi_n(x)|$ or $|\Psi_m(x)| = 0$, we can see that the height of $|\Psi_s(x)|$ is $\frac{1}{\sqrt{2}}$ that of the non-zero wavefunction, thus confirming the superposition of the two is being calculated correctly. 
+$\frac{1}{\sqrt{2}}$ that of the non-zero wavefunction, thus confirming the superposition of the two is being calculated correctly. 
 
 \section{Discussion}
 \textbf{Question 1:}
@@ -249,9 +230,11 @@ After creating the energy-level diagram for up to $n=5$, create a code that find
 The wavelength was found using the following equation:
 
 \[\lambda = \frac{hc}{\Delta E}\]
-where $\lambda$ is the wavelength of the photon, $h$ is Planks constant, $c$ is the speed of light and $\Delta E$ is the difference in eigen energies.
+where $\lambda$ is the wavelength of the photon, $h$ is Planks constant, $c$ is the speed of light and $\Delta E$ is the difference in energy eigenvalues.
 
-\begin{listing}
+The code and the output is shown below:
+
+\begin{listing}[H]
 \begin{minted}[
 frame=lines,
 framesep=2mm,
@@ -285,8 +268,4 @@ print("n=2 to n=1 photon wavelength: ",
 
 
 \section{Conclusions}
-
-\begin{itemize}
-    \item Visualise the energy levels of a confined particle as well as the behaviour of its quantum wavefunction,
-    \item Obtain deeper understanding and visualise the nature of qunatum superposition.
-\end{itemize}
+In this lab the particle in a well problem was analysed. The energy levels of a confined particle was investigated visualised using jupyter notebook. The interaction of wavefunctions at these energy levels was observed to obtain a deeper understanding of the nature of quantum particles. The objectives were therefore met comfortably.
