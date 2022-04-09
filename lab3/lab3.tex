@@ -9,7 +9,7 @@ The following steps were followed to create an entanglement protocol and to perf
 
 \textbf{Step 1:} Use a third party entangled qubit pair.
 
-Qubit q1 and qubit q2 were entangled by applying CNOT gate after applying a Hadamard gate. These two qubits were used as the ``third party entangled qubit pair'', shown in Figure \ref{step1}
+Qubit q$_1$ and qubit q$_2$ were entangled by applying CNOT gate after applying a Hadamard gate. These two qubits were used as the ``third party entangled qubit pair'', shown in Figure \ref{step1}
 \begin{figure}[H]
 \centering
 \begin{tabular}{c}
@@ -39,7 +39,7 @@ $\rightarrow$
 \end{figure}
 
 \textbf{Step 2:} Perform operations on the qubit that must be sent.
-q0 is the qubit that is required to be sent. It is initalised in a random state and then entangled with qubit q1 (one of the third party entangled pairs), shown in Figure \ref{step2}. 
+q$_0$ is the qubit that is required to be sent. It is initalised in a random state and then entangled with qubit q$_1$ (one of the third party entangled pairs), shown in Figure \ref{step2}. 
 
 \begin{figure}[H]
 \centering
@@ -75,7 +75,7 @@ $\rightarrow$
 
 \textbf{Step 3:} Send the results over a classical communication channel.
 
-The qubit being sent, q0, and one of the third party entangled pair qubits, q1, were measured, stored in classical bits, and sent over a classical communication channel, as can be seen in Figure \ref{step3}
+The qubit being sent, q$_0$, and one of the third party entangled pair qubits, q$_1$, were measured, stored in classical bits, and sent over a classical communication channel, as can be seen in Figure \ref{step3}
 
 \begin{figure}[H]
 \centering
@@ -107,12 +107,12 @@ $\rightarrow$
 
 \textbf{Step 4:} Perform some operations on the received information to receive the qubit.
 
-The classical bits were received and were used to determine what gates had to be applied to the other third party entangled qubit, q2. 
+The classical bits were received and were used to determine what gates had to be applied to the other third party entangled qubit, q$_2$. 
 \begin{itemize}
-    \item If 00 is received, then no gates are applied to qubit q2
-    \item If 01 is received then an X gate is applied to qubit q2
-    \item If 10 is received then a Z gate is applied to qubit q2
-    \item If 11 is received then an X gate and a Z gate is applied to qubit q2 in series
+    \item If 00 is received, then no gates are applied to qubit q$_2$
+    \item If 01 is received then an X gate is applied to qubit q$_2$
+    \item If 10 is received then a Z gate is applied to qubit q$_2$
+    \item If 11 is received then an X gate and a Z gate is applied to qubit q$_2$ in series
 \end{itemize}
 The implementation can be seen in Figure \ref{step4}.
 
@@ -140,19 +140,20 @@ $\rightarrow$
 \end{minipage}\\
 \\ 
 \end{tabular}
-\caption{Code and circuit diagram to reproduce qubit q0}
+\caption{Code and circuit diagram to reproduce qubit q$_0$}
 \label{step4}
 \end{figure}
 
 \subsubsection{Final Design}
 The circuit written to perform `quantum teleportation' is shown in Figure \ref{fig:teleportCircuit}.
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{lab3/images/teleportCircuit.png}
-    \caption{Circuit diagram to teleport qubit q0 to qubit q2, made using qiskit}
+    \caption{Circuit diagram to teleport qubit q$_0$ to qubit q$_2$, made using qiskit}
     \label{fig:teleportCircuit}
 \end{figure}
-Qubit q3 was initialised to be the same as qubit q0 (the qubit that is being quantum-mechanically teleported). This was done purely to ensure the same qubit was extracted. Qubit q2 is the qubit that was extracted after teleportation. It is clear that it is the same as qubit q3, thus proving the circuit worked. To verify the robustness of this design, the circuit was built using IBMs remote quantum computer. The result from which are discussed in Section \ref{sec:discussTeleport}.
+
+Qubit q$_3$ was initialised to be the same as qubit q$_0$ (the qubit that was being quantum-mechanically teleported). This was done purely to ensure the same qubit was extracted. Qubit q$_2$ is the qubit that was extracted after teleportation. It is clear that qubit q$_2$ is the same as qubit q$_3$, thus proving the circuit worked. To verify the robustness of this design, the circuit was built using IBMs remote quantum computer. The result from which are discussed in Section \ref{sec:discussTeleport}.
 
 \begin{figure}[h]
     \centering
@@ -173,36 +174,35 @@ Steps for teleportation protocol were followed and are discussed in Section \ref
 
 \textbf{2(a)}: Use IBM composer and compare its results to what you obtained above. Are they different? How so?
 
-A circuit similar to the circuit shown in Figure \ref{fig:teleportCircuit} was implemented in the IBM Quantum Composer environment. The qubit that was required to be teleported was initialized in state $|0\rangle$ instead of a random state, the results are plotted in Figure \ref{fig:ibmHistogram}.
-
-
+A circuit similar to the circuit shown in Figure \ref{fig:teleportCircuit} was implemented in the IBM Quantum Composer environment. The qubit that was required to be teleported was initialized in state $|0\rangle$ instead of a random state, the results are plotted in Figure \ref{fig:ibmHistogram}. An exact copy of this circuit was implemented using qiskit for comparative purposes.
 
 \begin{figure}[h]
     \centering
-    \begin{subfigure}[h]{0.33\textwidth}
+    \begin{subfigure}[h]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{lab3/images/ibmTeleport.png}
         \caption{}
-        \label{fig:ibmHistogram}
+        \label{fig:ibmHistogramTele}
     \end{subfigure}
-    \hspace{0.2\textwidth}
-    \begin{subfigure}[h]{0.33\textwidth}
+    \hfill
+    \begin{subfigure}[h]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{lab3/images/qiskitHist.png}
         \caption{}
-        \label{fig:qiskitHistogram}
+        \label{fig:qiskitHistogramTele}
     \end{subfigure}
-    \caption{teleHist} 
+    \caption{Histogram showing a) the probability of measuring each possible state according to qiskit and b) the frequency of the states measured after implementing the circuit using IBM's quantum computer} 
     \label{fig:teleHist}
 \end{figure}
+
+The histogram in Figure \ref{fig:qiskitHistogramTele} shows the result from qiskit. It is clear that the most significant bit, c$_2$, is always 0. We were trying to teleport a qubit in state 0 and this was achieved. However, this was not the case in the 
 
 \textbf{2(b):} Now that you have implemented it, what could quantum teleportation be used for and why is it important?
 
 Quantum hardware is far less robust to errors as classical hardware since the slightest interaction with the environment causes a qubit to collapse into a discrete state of either 0 or 1. This phenomenon poses significant challenges to the dependability of quantum computers. Using quantum teleportation is extremely important for transferring quantum information especially when information needs to be sent over large distances as the information can be protected from noise.
-Present-day state-of-the-art quantum computers typically suffer due to decoherence and noise in qubits, hence developing methods to improve the robustness of quantum systems, such as quantum teleportation, is therefore essential for many practical applications.
-%demand less failure in  to be practical.  
+Present-day state-of-the-art quantum computers typically suffer due to decoherence and noise in qubits, hence developing methods to improve the robustness of quantum systems, such as quantum teleportation, is essential for many practical applications.
 
 \section{Conclusions}
 
-In this lab a quantum algorithm was implemented and applied to successfully achieve quantum teleportation. This was first performed using qiskit, and the result was verified by retesting the circuit on IBMs quantum computer. Thus, the objectives were successfully fulfilled. The objectives were met with ease, so I do not believe the lab should be changed in any way to meet those objectives.
-To improve understanding, it would be helpful to briefly discuss the quantum algorithm and how it is formed, i.e. the reasons for applying the gates in the given order. Although, having said that, it is understandable if that is outside the scope of this course.
+In this lab a quantum algorithm was implemented and applied to successfully achieve quantum teleportation. This was first performed using qiskit, and the result was verified by retesting the circuit on IBMs quantum computer. Thus, the objectives were successfully fulfilled. The objectives were achieved with ease, so I do not believe the lab should be changed in any way to meet those objectives.
+To improve understanding, it would be helpful to briefly discuss the quantum algorithm and how it is formed, i.e. the reasons for applying the gates in the given order. Although, having said that, it is understandable if that is outwith the scope of this course.
