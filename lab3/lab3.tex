@@ -9,7 +9,7 @@ The following steps were followed to create an entanglement protocol and to perf
 
 \textbf{Step 1:} Use a third party entangled qubit pair.
 
-Qubit q$_1$ and qubit q$_2$ were entangled by applying CNOT gate after applying a Hadamard gate. These two qubits were used as the ``third party entangled qubit pair'', shown in Figure \ref{step1}
+Qubit q$_1$ and qubit q$_2$ were entangled by applying CNOT gate after applying a Hadamard gate, shown in Figure \ref{step1}. These two qubits were used as the ``third party entangled qubit pair''.
 \begin{figure}[H]
 \centering
 \begin{tabular}{c}
@@ -34,11 +34,13 @@ $\rightarrow$
 \end{minipage}\\
 \\ 
 \end{tabular}
+\captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
 \caption{Code and circuit diagram to produce entangled pair}
 \label{step1}
 \end{figure}
 
 \textbf{Step 2:} Perform operations on the qubit that must be sent.
+
 q$_0$ is the qubit that is required to be sent. It is initalised in a random state and then entangled with qubit q$_1$ (one of the third party entangled pairs), shown in Figure \ref{step2}. 
 
 \begin{figure}[H]
@@ -68,14 +70,15 @@ $\rightarrow$
 \end{minipage}\\
 \\ 
 \end{tabular}
-\caption{Code and circuit diagram to entangle qubit to entangled pair}
+\captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
+\caption{Code and circuit diagram to entangle qubit to one of the third party entangled qubits}
 \label{step2}
 \end{figure}
 
 
 \textbf{Step 3:} Send the results over a classical communication channel.
 
-The qubit being sent, q$_0$, and one of the third party entangled pair qubits, q$_1$, were measured, stored in classical bits, and sent over a classical communication channel, as can be seen in Figure \ref{step3}
+The qubit being sent, q$_0$, and one of the third party entangled pair qubits, q$_1$, were measured, stored in classical bits, and sent over a classical communication channel, as can be seen in Figure \ref{step3}.
 
 \begin{figure}[H]
 \centering
@@ -101,6 +104,7 @@ $\rightarrow$
 \end{minipage}\\
 \\ 
 \end{tabular}
+\captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
 \caption{Code and circuit diagram to send data over classical channel}
 \label{step3}
 \end{figure}
@@ -140,6 +144,7 @@ $\rightarrow$
 \end{minipage}\\
 \\ 
 \end{tabular}
+\captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
 \caption{Code and circuit diagram to reproduce qubit q$_0$}
 \label{step4}
 \end{figure}
@@ -149,6 +154,7 @@ The circuit written to perform `quantum teleportation' is shown in Figure \ref{f
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{lab3/images/teleportCircuit.png}
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
     \caption{Circuit diagram to teleport qubit q$_0$ to qubit q$_2$, made using qiskit}
     \label{fig:teleportCircuit}
 \end{figure}
@@ -158,25 +164,14 @@ Qubit q$_3$ was initialised to be the same as qubit q$_0$ (the qubit that was be
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{lab3/images/teleportBloch.png}
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
     \caption{Bloch sphere showing the state of each qubit after teleportation has occurred}
     \label{fig:teleportBloch}
 \end{figure}
 
 \section{Comparison of Results with Theory}
-\section{Discussion} \label{sec:discussTeleport}
-\textbf{Question 1:}
 
-Follow the steps above, and the knowledge of qiskit you now have from Lab 2 to create a teleportation protocol. You may also benefit from the little revision above which introduce a couple of new features of qiskit
-
-Steps for teleportation protocol were followed and are discussed in Section \ref{sec:teleResults}. See Figure \ref{fig:teleportCircuit} for the final circuit diagram.
-
-\textbf{Question 2:}
-
-\textbf{2(a)}: Use IBM composer and compare its results to what you obtained above. Are they different? How so?
-
-A circuit similar to the circuit shown in Figure \ref{fig:teleportCircuit} was implemented in the IBM Quantum Composer environment. The qubit that was required to be teleported was initialized in state $|0\rangle$ instead of a random state, the results are plotted in Figure \ref{fig:ibmHistogram}. An exact copy of this circuit was implemented using qiskit for comparative purposes.
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[h]{0.49\textwidth}
         \centering
@@ -191,18 +186,35 @@ A circuit similar to the circuit shown in Figure \ref{fig:teleportCircuit} was i
         \caption{}
         \label{fig:qiskitHistogramTele}
     \end{subfigure}
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
     \caption{Histogram showing a) the probability of measuring each possible state according to qiskit and b) the frequency of the states measured after implementing the circuit using IBM's quantum computer} 
     \label{fig:teleHist}
 \end{figure}
 
-The histogram in Figure \ref{fig:qiskitHistogramTele} shows the result from qiskit. It is clear that the most significant bit, c$_2$, is always 0. We were trying to teleport a qubit in state 0 and this was achieved. However, this was not the case in the 
+A circuit similar to the circuit shown in Figure \ref{fig:teleportCircuit} was implemented in the IBM Quantum Composer environment. The qubit that was required to be teleported was initialized in state $|0\rangle$, instead of a random state, and the results are plotted in Figure \ref{fig:ibmHistogram}. An exact copy of this circuit was implemented using qiskit for comparative purposes, this histogram for which is shown in Figure \ref{fig:qiskitHistogramTele}.
 
-\textbf{2(b):} Now that you have implemented it, what could quantum teleportation be used for and why is it important?
+The expected output was for the qubit to always be measured in state $|0\rangle$. This occurred when the circuit was implemented using qiskit (q$_0$ was teleported to q$_2$ which was always measured to be in state $|0\rangle$); however, the qubit was occasionally measured in state $|1\rangle$ when using IBM's quantum computer. The reason for this is discussed in Section \ref{sec:discussTeleport}
 
-Quantum hardware is far less robust to errors as classical hardware since the slightest interaction with the environment causes a qubit to collapse into a discrete state of either 0 or 1. This phenomenon poses significant challenges to the dependability of quantum computers. Using quantum teleportation is extremely important for transferring quantum information especially when information needs to be sent over large distances as the information can be protected from noise.
+\section{Discussion} \label{sec:discussTeleport}
+\textbf{Question 1:}
+\textit{Follow the steps above, and the knowledge of qiskit you now have from Lab 2 to create a teleportation protocol. You may also benefit from the little revision above which introduce a couple of new features of qiskit}
+
+Steps for teleportation protocol were followed and are discussed in Section \ref{sec:teleResults}. See Figure \ref{fig:teleportCircuit} for the final circuit diagram.
+
+\textbf{Question 2:}
+
+\textbf{2(a)}: \textit{Use IBM composer and compare its results to what you obtained above. Are they different? How so?}
+
+
+The histogram in Figure \ref{fig:qiskitHistogramTele} shows the result from qiskit. Quantum teleportation was achieved since the qubit being sent, in state $|0\rangle$, was successfully transferred to another qubit when using qiskit. However, this was not the case when implementing the circuit using IBMs circuit. From Figure \ref{fig:ibmHistogramTele}, it is clear that most of the time, the qubit was measured in state $|0\rangle$, but occasionally, the qubit was found to be in state $|1\rangle$. This is due to noise and decoherence affecting the qubit. Qubits are very prone to interference and this can change the state they are in. At some point, between initialisation and measurement, the qubit was corrupted.
+
+\textbf{2(b):} \textit{Now that you have implemented it, what could quantum teleportation be used for and why is it important?}
+
+Quantum hardware is far less robust to errors as classical hardware, since the slightest interaction with the environment causes a qubit to collapse into a discrete state of either 0 or 1. This phenomenon poses significant challenges to the dependability of quantum computers. Using quantum teleportation is extremely important for transferring quantum information to protect it from noise, especially when the information needs to be sent over large distances.
 Present-day state-of-the-art quantum computers typically suffer due to decoherence and noise in qubits, hence developing methods to improve the robustness of quantum systems, such as quantum teleportation, is essential for many practical applications.
 
 \section{Conclusions}
 
-In this lab a quantum algorithm was implemented and applied to successfully achieve quantum teleportation. This was first performed using qiskit, and the result was verified by retesting the circuit on IBMs quantum computer. Thus, the objectives were successfully fulfilled. The objectives were achieved with ease, so I do not believe the lab should be changed in any way to meet those objectives.
+In this lab a quantum algorithm was implemented and applied to successfully achieve quantum teleportation. This was first performed using qiskit, and the result was verified by retesting the circuit on IBMs quantum computer. Thus, the objectives were successfully fulfilled. The objectives were achieved with ease, so no changes are necessary to meet those objectives.
+
 To improve understanding, it would be helpful to briefly discuss the quantum algorithm and how it is formed, i.e. the reasons for applying the gates in the given order. Although, having said that, it is understandable if that is outwith the scope of this course.

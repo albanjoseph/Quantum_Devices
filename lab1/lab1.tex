@@ -1,16 +1,15 @@
 \chapter{Quantum Confinement and Superposition}
-%Comparison of Results with Theory
-%Discussion
-%Conclusion
+
 In quantum mechanics, particles can be `spatially confined' to a given energy potential where the energy levels of the confined particles will not remain continuous but instead are instead quantized.
 Quantum mechanics allows us to obtain the wave functions of the confined particle and their discrete set of energy levels -- such kinds of effects appear when the dimensions of the potential approach the deBroglie wavelength of particle. These effects are the basis for several semiconductor devices.
 
-In this lab, the infinite square well (often called ``particle in a box'') problem was investigated. This problem provides several illustrations of the properties of wave functions whilst being one of the less troublesome problems to solve. This can be done using the time-independent, one-dimensional Schrödinger equation.
+In this lab, the infinite square well (often called ``particle in a box'') problem was investigated. This problem provides several illustrations of the properties of wave functions whilst being one of the less troublesome problems to solve.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{lab1/images/pIAB.png}
-    \caption{Particle in a Box} %reference
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
+    \caption{Illustration of the ``particle in a box'' problem -- based on image from:\\ https://en.wikipedia.org/wiki/Particle\_in\_a\_box\#/media/File:Infinite\_potential\_well-en.svg}
     \label{fig:particleInABox}
 \end{figure}
 
@@ -34,11 +33,10 @@ $V(x)=0$ in the potential well:
 \therefore E_n \psi_n (x) = \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\psi_n (x)
 \end{equation}
 
-Substituting $\psi_n (x)$ for its eigenfunction (the derivation for this eigenfunction can be found in Section~\ref{sec:eigenFunction}):
+Substituting $\psi_n (x)$ (the derivation for this eigenfunction can be found in Section~\ref{sec:eigenFunction}):
 \begin{align*}
 E_n \psi_n (x) &= \frac{-\hbar ^{2}}{2m}\frac{\delta^{2}}{\delta x^{2}}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)\\
 E_n \psi_n (x) &= \frac{-\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\Bigg(\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg)\\
-\hspace{-1.2cm}\text{Substituting the eigenfunction for }\psi_n (x)\text{:}\\
 E_n \psi_n (x) &= \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2}\psi_n (x)\\
 E_n &= \frac{\hbar ^{2}}{2m}\Big(\frac{n\pi}{a}\Big)^{2} & \text{where } n \in \mathbb{N}
 \end{align*}
@@ -48,6 +46,7 @@ The energy eigenvalues for a well of width a=0.1nm is shown in Figure \ref{fig:e
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.4\textwidth]{lab1/images/eigenvaluesEnergy.png}
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
     \caption{Plot showing the first 5 the discrete energy levels (n=1 to n=5) for a particle confined in a box of length 0.1nm} 
     \label{fig:eigenEnergy}
 \end{figure}
@@ -65,7 +64,7 @@ The values for the quantised energies can be found in Table \ref{tab:qEnerergy}:
 4 & 9.63946e-17 \\ \hline
 5 & 1.50617e-16 \\ \hline
 \end{tabular}
-%\captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
+\captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
 \caption{Table showing the first 5 the discrete energy values (n=1 to n=5) for a particle confined in a box of length 0.1nm}
 \label{tab:qEnerergy}
 \end{table}
@@ -75,7 +74,7 @@ Equation \ref{eq:shrod} must firstly be rearranged to determine the eigenfunctio
 
 $$\frac{\delta^{2}}{\delta x^{2}}\psi (x) = \frac{-2m}{\hbar} E \psi (x) = -k^2 \psi (x)$$
 $$\frac{\delta^{2}}{\delta x^{2}}\psi (x) + k^2 \psi (x) = 0$$
-where $k=\frac{-2m}{\hbar}$
+where $k=\sqrt{\frac{2mE}{\hbar}}$
 
 To satisfy this second order homogeneous differential equation, the general equation is given by the following expression:
 
@@ -85,7 +84,7 @@ Applying the boundary condition, $\psi (0)$=0:
 \begin{align*}
 \implies 0 &= A sin(0) + B cos(0)\\
  0 &= B\\
-\therefore \psi (kx) &= A sin(kx)
+\therefore \psi (x) &= A sin(kx)
 \end{align*}
 
 Applying the boundary condition, $\psi (a)$=0:
@@ -115,18 +114,20 @@ $$\therefore \psi_n (x) = \sqrt{\frac{2}{a}} sin(\frac{\pi n}{a}x)$$
 The normalised wavefunction, $\psi_n (x)$, for $n=1$ to $n=5$ is shown in Figure \ref{fig:normWave}.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{lab1/images/normalisedWavefunction.png}
+    \includegraphics[width=0.5\textwidth]{lab1/images/normalisedWavefunction.png}
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
     \caption{Plot showing the normalised wavefunctions for (n=1 to n=5) for a particle confined in a box of length 0.1nm}
     \label{fig:normWave}
 \end{figure}
 
-Figure \ref{fig:probDens} shows the probability density functions (PDFs), $P_n(x)$, for $n=1$ to $n=5$; where $P_n (x)$, given by:
+Figure \ref{fig:probDens} shows the probability density functions (PDFs), for $n=1$ to $n=5$:
 
-$$P_n(x) =\psi_n (x)^{*}\psi_n (x) =|\psi_n(x)|^{2} = \Bigg|\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg|^{2}  $$
+$$P_n(x,dx) =\psi_n (x)^{*}\psi_n (x)dx =|\psi_n(x)|^{2}dx = \Bigg|\sqrt{\frac{2}{a}}\sin\Big(\frac{n\pi x}{a}\Big)\Bigg|^{2}dx  $$
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{lab1/images/probabilityDensity.png} %MISSING Y AXIS
+    \includegraphics[width=0.5\textwidth]{lab1/images/probabilityDensity.png} %MISSING Y AXIS
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
     \caption{Plot showing the probability density functions for (n=1 to n=5) for a particle confined in a box of length 0.1nm}
     \label{fig:probDens}
 \end{figure}
@@ -162,13 +163,13 @@ $$ \left | A \right |^2 \int_{0}^{a}\left( \left | \psi_n (x) \right |^2 + \left
 
 Since $cos(x) = \frac{e^{ix}+e^{-ix}}{2}$:
 $$ \left | A \right |^2 \int_{0}^{a}\left( \left | \psi_n (x) \right |^2 + \left | \psi_m (x) \right |^2 + \psi_m (x)\psi_n (x)(2\cos(\omega_{2}- \omega_{1})t)\right)dx = 1$$
-$$ \left | A \right |^2 \int_{0}^{a}\left(\frac{2}{a} sin^{2}(\frac{\pi n_1}{a}x)+\frac{2}{a} sin^{2}(\frac{\pi n_2}{a}x)+\frac{4}{a} sin(\frac{\pi n_1}{a}x)sin(\frac{\pi n_2}{a}x)(\cos(\omega_{2}- \omega_{1})t)\right)dx = 1$$
+$$ \left | A \right |^2 \int_{0}^{a}\left(\frac{2}{a} sin^{2}(\frac{\pi n}{a}x)+\frac{2}{a} sin^{2}(\frac{\pi m}{a}x)+\frac{4}{a} sin(\frac{\pi n}{a}x)sin(\frac{\pi m}{a}x)(\cos(\omega_{2}- \omega_{1})t)\right)dx = 1$$
 $$...$$
-$$\left | A \right |^2 \left( \frac{2}{a}\left(\frac{a}{2}\right) + \frac{2}{a}\left(\frac{a}{2}\right) + \frac{4}{a}\cos(\omega_{2}- \omega_{1})t\int_{0}^{a} sin(\frac{\pi n_1}{a}x)sin(\frac{\pi n_2}{a}x)dx \right)=1$$
+$$\left | A \right |^2 \left( \frac{2}{a}\left(\frac{a}{2}\right) + \frac{2}{a}\left(\frac{a}{2}\right) + \frac{4}{a}\cos(\omega_{2}- \omega_{1})t\int_{0}^{a} sin(\frac{\pi n}{a}x)sin(\frac{\pi m}{a}x)dx \right)=1$$
 
 $$\left | A \right |^2 \left( 1 + 1 + \frac{4}{a}\cos(\omega_{2}- \omega_{1})t(0) \right)=1$$
 $$\left | A \right |^2 = \frac{1}{2}$$
-$$\left | A \right | = \sqrt{\frac{2}{a}}$$
+$$\left | A \right | = \sqrt{\frac{1}{2}}$$
 $$\therefore \Psi_s (x, t) = \sqrt{\frac{1}{2}} \left( \psi_n (x)e^{-i \omega_{1} t} + \psi_m (x)e^{-i \omega_{2} t}\right)$$
 
 The real part of this superpositioned wavefunction was plotted as shown in Figure \ref{fig:superPosWave}.
@@ -176,6 +177,7 @@ The real part of this superpositioned wavefunction was plotted as shown in Figur
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.65\textwidth]{lab1/images/superpositionWave.png}
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
     \caption{Plot showing the two eigenstates, $\psi_2 (x)$ and $\psi_3 (x)$, and the superposition of both eigenstates for a particle confined in a box of length 0.1nm at time \textbf{t=1}}
     \label{fig:superPosWave}
 \end{figure}
@@ -198,6 +200,7 @@ $$P_s(x) = 0.5 \left | \psi_n (x) \right |^2 + 0.5\left | \psi_m (x) \right |^2 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{lab1/images/superpositionPDF.png}
+    \captionsetup{font = it, labelfont = bf, width=.91\linewidth, justification=centering}
     \caption{Probability density function for the superimposed state, $\Psi_s (x,t)$, plotted at various times}
     \label{fig:superPosPDF}
 \end{figure}
@@ -209,23 +212,20 @@ The results from this lab is entirely based on theory so there are no discrepanc
 When calculating $E_n$ for $n=1,2,3,4,5$ it was clear to see that the ratio of $\frac{E_n}{E_1}$ is always equal to $n^{2}$. This can be proved mathematically by substituting $n=1$:
 $$E_1 = \frac{\hbar ^{2}\pi^{2}}{2ma^{2}}$$
 
-\begin{equation}%\label{eq:energySpacing}
+\begin{equation}\label{eq:energySpacing}
 \implies E_n =  n^{2}E_1
 \end{equation}
-The energy levels must therefore become more sparse as $n$ increases, which can be seen in Figure~\ref{fig:eigenEnergy}.
+Equation \ref{eq:energySpacing} suggests that the energy levels must become more sparse as $n$ increases. This was seen in Figure~\ref{fig:eigenEnergy}.
 
-All of the wave functions were 0 at each wall which means that the boundary conditions were always satisfied.
+All of the wave functions were 0 at the walls of the box, which means that the boundary conditions were always satisfied.
 
-The peak wavefunctions $\approx \sqrt{2/L}$ and the peak probability is no higher than $2/L$.
+The peak of the wavefunctions had a value of $\approx \sqrt{2/L}$; this was the required amplitude to achieve a normalised wavefunction. The peak probability was subsequently found to be no higher than $2/L$, therefore the correct wavefunctions were achieved.
 
-To ensure the correct PDF was achieved, the trapz function was used. This function integrated was used to integrate the PDF and the area under the curve was always found to be $\approx 1$.
-
-
-$\frac{1}{\sqrt{2}}$ that of the non-zero wavefunction, thus confirming the superposition of the two is being calculated correctly. 
+To ensure the correct PDF was achieved, the trapz function was used. This function calculated the area under the curve and was always found to be $\approx 1$. Thus confirming the amplitude of the wavefunction was calculated correctly. 
 
 \section{Discussion}
 \textbf{Question 1:}
-After creating the energy-level diagram for up to $n=5$, create a code that finds the wavelengths of the photons emitted for all transitions beginning at state $n=3$ or less and ending at a lower energy state.
+\textit{After creating the energy-level diagram for up to $n=5$, create a code that finds the wavelengths of the photons emitted for all transitions beginning at state $n=3$ or less and ending at a lower energy state.}
 
 The wavelength was found using the following equation:
 
@@ -268,4 +268,4 @@ print("n=2 to n=1 photon wavelength: ",
 
 
 \section{Conclusions}
-In this lab the particle in a well problem was analysed. The energy levels of a confined particle was investigated visualised using jupyter notebook. The interaction of wavefunctions at these energy levels was observed to obtain a deeper understanding of the nature of quantum particles. The objectives were therefore met comfortably.
+In this lab the particle in a well problem was analysed. The energy levels of a confined particle was investigated visualised using jupyter notebook. The interaction of wavefunctions at these energy levels was observed to obtain a deeper understanding of the nature of quantum particles. The objectives were met comfortably, therefore, no changes are required to meet them. 
